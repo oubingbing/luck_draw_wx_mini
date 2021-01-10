@@ -1,0 +1,22 @@
+page{
+  background-color: #F5F5F5;
+  display: flex;
+  flex-direction: column;
+}
+
+/**FF7256**/
+
+.container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container .container-wall{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  background: white;
+  margin-top: 75rpx;
+}
