@@ -4,8 +4,6 @@ page{
   flex-direction: column;
 }
 
-/**FF7256**/
-
 .container{
   width: 100%;
   display: flex;
@@ -19,4 +17,79 @@ page{
   justify-content:space-around;
   background: white;
   margin-top: 75rpx;
+}
+
+/** 内容主体 **/
+.body{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30rpx;
+}
+
+.body-content{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.body-item{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+}
+
+.b-item{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 15rpx;
+  margin-bottom: 40rpx;
+  box-shadow: 0rpx 0rpx 20rpx 10rpx gainsboro;
+}
+
+.item-image{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-image image{
+  width: 100%;
+  height: 350rpx;
+  border-top-left-radius: 15rpx;
+  border-top-right-radius: 15rpx;
+}
+
+.item-txt{
+  height: 180rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.txt-title{
+  width: 90%;
+  font-size: 35rpx;
+}
+
+.txt-title-rule{
+  width: 90%;
+  font-size: 27rpx;
+  color: gray;
+  display: flex;
+  flex-direction: row;
+  padding: 6rpx 0rpx;
+}
+
+.txt-title-color{
+  color: #FF4400;
+}
+
+.txt-title-join{
+  margin-left: 20rpx;
 }

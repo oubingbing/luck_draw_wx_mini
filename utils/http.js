@@ -93,7 +93,6 @@ const patch = function (_url, _data, callback) {
 * 封装微信http请求
 */
 const httpRequest=function (_method, _url, _data, callback) {
-  _data.app_code = config.alianceKey
   let token = wx.getStorageSync('token');
   let _this = this;
   wx.request({

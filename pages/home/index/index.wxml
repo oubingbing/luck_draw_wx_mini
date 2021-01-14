@@ -2,6 +2,27 @@
 <view class='all-container'>
   <view class="container">
 
+    <!-- 内容主体 -->
+    <view class="body">
+      <view class="body-content">
+        <!-- 内容item -->
+        <view class="body-item">
+          <view class="b-item" wx:for="{{activities}}" wx:key="{{item.id}}">
+            <view class="item-image">
+              <image mode="scaleToFill" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdfscdn.dfcfw.com%2Fdownload%2FB9537133806979874817%26direct%3D1&refer=http%3A%2F%2Fdfscdn.dfcfw.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1613187434&t=251105ac1bea1ddb2b7bcd8ee86b2255"></image>
+            </view>
+            <view class="item-txt">
+              <view class="txt-title">{{item.name}}</view>
+              <view class="txt-title-rule txt-title-color">
+                <view>组团满{{item.JoinLimitNum}}人自动开奖</view>
+                <view class="txt-title-join">已组团{{item.JoinNum}}人</view>
+              </view>
+              <view class="txt-title-rule">拼多多赞助</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
 </view>
 
