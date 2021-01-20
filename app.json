@@ -1,11 +1,12 @@
 {
   "pages": [
     "pages/home/index/index",
-    "pages/personal/index/personal"
+    "pages/personal/index/personal",
+    "pages/home/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#66CDAA",
+    "navigationBarBackgroundColor": "#FF4400",
     "navigationBarTitleText": "金抽抽",
     "navigationBarTextStyle": "white"
   },
@@ -16,20 +17,20 @@
   },
   "tabBar": {
     "color": "#515151",
-    "selectedColor": "#66CDAA",
+    "selectedColor": "#FF4400",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/home/index/index",
-        "iconPath": "",
-        "selectedIconPath": "",
+        "iconPath": "image/draw.png",
+        "selectedIconPath": "image/select-draw.png",
         "text": "首页"
       },
       {
         "pagePath": "pages/personal/index/personal",
-        "iconPath": "",
-        "selectedIconPath": "",
+        "iconPath": "image/my.png",
+        "selectedIconPath": "image/select-my.png",
         "text": "我的"
       }
     ]

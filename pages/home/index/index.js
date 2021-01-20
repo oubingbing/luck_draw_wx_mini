@@ -5,17 +5,41 @@ const app = getApp()
 Page({
   data: {
     show_auth:false,
-    userInfo: {},
+    pageSize: 10,
+    pageNumber: 1,
+    initPageNumber: 1,
+    orderBy:"id",
+    sort:"desc",
+
+    activities:[]
   },
 
   onLoad: function (e) {
-
+    this.getActivities()
 
   },
 
   onShow: function (option) {
 
-   
+  
+  },
+
+  getActivities:function(){
+    let pageSize = this.data.pageSize
+    let pageNum = this.data.pageNumber
+    let order = this.data.orderBy
+    let sort = this.data.sort
+    http.get(`/activity/page?page_size=${pageSize}&page_num=${pageNum}&order_by=${order}&sort=${sort}`, {}, res => {
+      console.log(res.data.data);
+      let resDate = res.data
+      if(resDate.code == 0){
+        let data = this.data.activities
+        resDate.data.map(item=>{
+          data.push(item)
+        })
+        this.setData({activities:data})
+      }
+    });
   },
 
   /**
