@@ -96,7 +96,7 @@ const httpRequest=function (_method, _url, _data, callback) {
   let token = wx.getStorageSync('token');
   let _this = this;
   wx.request({
-    url: config.domain + _url,
+    url: config.domain+ "/api" + _url,
     header: {
       'content-type': 'application/json',
       'Authorization': 'Bearer ' + token
