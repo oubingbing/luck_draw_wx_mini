@@ -7,12 +7,16 @@
       <view class="body-content">
         <!-- 内容item -->
         <view class="body-item">
-          <view class="b-item" wx:for="{{activities}}" wx:key="{{item.id}}">
+          <view class="b-item" 
+                bindtap="detail"
+                data-id="{{item.ID}}"
+                wx:for="{{activities}}" 
+                wx:key="{{item.ID}}">
             <view class="item-image">
               <image mode="aspectFit" src="{{item.AttachmentsSli[0]}}"></image>
             </view>
             <view class="item-txt">
-              <view class="txt-title">{{item.name}}</view>
+              <view class="txt-title">{{item.Name}}</view>
               <view class="txt-title-rule txt-title-color">
                 <view>组团满{{item.JoinLimitNum}}人自动开奖</view>
                 <view class="txt-title-join">已组团{{item.JoinNum}}人</view>
