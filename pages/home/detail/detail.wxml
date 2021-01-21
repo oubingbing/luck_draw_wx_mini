@@ -16,7 +16,7 @@
     </view>
 
     <view class="join-content">
-      <view class="join-btn">参加抽奖</view>
+      <view class="join-btn" bindtap="joinActivity">参加抽奖</view>
     </view>
 
     <view class="gift-content">
