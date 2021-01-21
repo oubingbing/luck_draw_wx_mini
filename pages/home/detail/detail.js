@@ -31,6 +31,20 @@ Page({
     });
   },
 
+  joinActivity:function(){
+    http.post(`/activity/join`, {id:this.id}, res => {
+      let resDate = res.data
+      if(resDate.code == 0){
+        this.setData({activity:resDate.data})
+      }else{
+        thiswx.showToast({
+          title: '请求失败',
+          icon:"none"
+        })
+      }
+    });
+  },
+
   onShareAppMessage: function () {
 
   }

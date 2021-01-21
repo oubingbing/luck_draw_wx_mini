@@ -63,6 +63,13 @@
 					"pathName": "pages/home/detail/detail",
 					"query": "id=28",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/personal/index/personal",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

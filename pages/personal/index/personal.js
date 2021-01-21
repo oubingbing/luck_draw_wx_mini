@@ -9,9 +9,7 @@ Page({
     showLoginButton: true
   },
   onLoad: function () {
-
     this.checkAuth();
-
     let userStorage = wx.getStorageSync('user');
     if (userStorage){
       this.setData({
@@ -19,7 +17,7 @@ Page({
       })
     }
     this.setData({ param: app.globalData.param })
-    this.getPersonalInfo();
+    this.getPersonalInfo()
   },
 
   onShow: function () {
@@ -27,7 +25,7 @@ Page({
   },
 
   checkLogin:function(){
-    http.post(`/check_login`, {}, res => {
+    http.get(`/user/check_login`, {}, res => {
       if (res.data.error_code == '5000') {
         app.globalData.authStatus = true;
         this.setData({
@@ -61,7 +59,7 @@ Page({
    * 获取个人信息
    */
   getPersonalInfo() {
-    http.get(`/personal_info`, {}, res => {
+    http.get(`/user/info`, {}, res => {
       console.log(res.data.data);
       this.setData({
         user: res.data.data
