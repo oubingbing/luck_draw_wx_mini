@@ -35,59 +35,61 @@ page{
 }
 
 .body-item{
-  width: 95%;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .b-item{
   width: 100%;
+  height: 260rpx;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   background: white;
-  border-radius: 15rpx;
-  margin-bottom: 40rpx;
-  box-shadow: 0rpx 0rpx 20rpx 10rpx gainsboro;
+  justify-content: flex-start;
+  border-bottom-style:solid;
+  border-width:1rpx;
+  border-color: #EEE9E9;
 }
 
 .item-image{
-  width: 100%;
+  width: 37%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .item-image image{
-  width: 100%;
-  height: 350rpx;
-  border-top-left-radius: 15rpx;
-  border-top-right-radius: 15rpx;
+  width: 95%;
+  height: 85%;
 }
 
 .item-txt{
-  height: 180rpx;
-  width: 100%;
+  height: 100%;
+  width: 63%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .txt-title{
   width: 90%;
-  font-size: 35rpx;
+  font-size: 30rpx;
 }
 
 .txt-title-rule{
   width: 90%;
-  font-size: 27rpx;
+  font-size: 25rpx;
   color: gray;
   display: flex;
   flex-direction: row;
-  padding: 6rpx 0rpx;
 }
 
 .txt-title-color{
   color: #FF4400;
+  padding: 13rpx 0rpx;
 }
 
 .txt-title-join{

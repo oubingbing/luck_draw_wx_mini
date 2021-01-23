@@ -10,18 +10,15 @@ Page({
     initPageNumber: 1,
     orderBy:"id",
     sort:"desc",
-
     activities:[]
   },
 
   onLoad: function (e) {
     this.getActivities()
-
   },
 
   onShow: function (option) {
 
-  
   },
 
   getActivities:function(){
@@ -30,7 +27,6 @@ Page({
     let order = this.data.orderBy
     let sort = this.data.sort
     http.get(`/activity/page?page_size=${pageSize}&page_num=${pageNum}&order_by=${order}&sort=${sort}`, {}, res => {
-      console.log(res.data.data);
       let resDate = res.data
       if(resDate.code == 0){
         let data = this.data.activities
@@ -40,6 +36,13 @@ Page({
         this.setData({activities:data})
       }
     });
+  },
+
+  detail:function(e){
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/home/detail/detail?id='+id
+    })
   },
 
   /**

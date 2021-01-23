@@ -1,65 +1,120 @@
-// pages/home/detail.js
+const http = require("./../../../utils/http.js");
+const app = getApp()
+let conn
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    id:"",
+    activity:null,
+    socketToken:"",
+    socketDomain:"",
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    let id = options.id
+    this.setData({id:id})
+    this.getDetail()
+    this.getSocketToken();
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
-
+    
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+  connectSocket:function(){
+    conn = wx.connectSocket({
+      url: this.data.socketDomain+'/ws?token='+this.data.socketToken,
+      header:{
+        'content-type': 'application/json'
+      }
+    })
 
+    conn.onError(res=>{
+      console.log("socket错误提示：")
+      console.log(res)
+    })
+
+    conn.onOpen(res=>{
+      console.log(res)
+    })
+
+    conn.onClose(res=>{
+      console.log(res)
+    })
+
+    conn.onMessage(res=>{
+      let data = JSON.parse(res.data)
+      if(data){
+        if(data.code == 200){
+          wx.hideLoading()
+          let pushData = data.data
+          if (pushData.code == 0){
+            //加入成功
+            wx.showToast({
+              title: pushData.message,
+              icon:"success"
+            })
+          }else{
+            //加入失败
+            wx.showToast({
+              title: pushData.message,
+              icon:"none"
+            })
+          }
+        }
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  getSocketToken:function(){
+    http.get(`/socket/token`, {}, res => {
+      let resDate = res.data
+      if(resDate.code == 0){
+        this.setData({socketToken:resDate.data.token,socketDomain:resDate.data.domain})
+      }else{
+        wx.showToast({
+          title: '请求失败',
+          icon:"none"
+        })
+      }
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  getDetail:function(){
+    http.get(`/activity/detail?id=${this.data.id}`, {}, res => {
+      let resDate = res.data
+      if(resDate.code == 0){
+        this.setData({activity:resDate.data})
+      }else{
+        wx.showToast({
+          title: '请求失败',
+          icon:"none"
+        })
+      }
+    });
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  joinActivity:function(){
+    if(!conn){
+      this.connectSocket()
+    }
+    
+    http.post(`/activity/join`, {id:this.data.id}, res => {
+      let resDate = res.data
+      if(resDate.code == 0){
+        wx.showLoading({
+          title: resDate.msg,
+          icon:"none"
+        })
+      }else{
+        wx.showToast({
+          title: resDate.msg,
+          icon:"none"
+        })
+      }
+    });
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage: function () {
 
   }
