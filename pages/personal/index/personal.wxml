@@ -2,6 +2,7 @@
 
   <view class="bg-container">
       <view class='bg-image'>
+        <image mode="aspectFill" src='/image/personal-bg.jpg'></image>
       </view>
       <view>
         <image wx:if="{{!showLoginButton}}" class='user-image' src='{{user.avatar}}'></image>
@@ -9,7 +10,7 @@
       <view class='user-info'>
           <view wx:if="{{!showLoginButton}}" class='user-name'>{{user.nickname}}</view>
           <view class='article'>
-            <view class="word">爱情属于勇敢的人儿</view>
+            <view class="word">每天都是好运气</view>
             <view class="login-button" wx:if="{{showLoginButton}}">
               <button open-type="getUserInfo" bindgetuserinfo="getAuthUserInfo">登录</button>
             </view>
@@ -29,7 +30,7 @@
     </view>
     <view class='content-item sale' bindtap="openSaleList">
       <view><image src='/image/select-sale.png' class='item-image'></image></view>
-      <view class='word'>获奖记录</view>
+      <view class='word'>我的消息</view>
     </view>
   </view>
 

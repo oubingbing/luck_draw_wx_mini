@@ -35,7 +35,6 @@ const getUserInfo = function (code, _method = null, _url = null, _data = null, c
               app_id: config.alianceKey
             }, function (res) {
               wx.setStorageSync('token', res.data.data);
-              console.log('token:' + res.data.data);
               if (_method) {
                 httpRequest(_method, _url, _data, callback);
               }
@@ -104,28 +103,15 @@ const httpRequest=function (_method, _url, _data, callback) {
     method: _method,
     data: _data,
     success: function (res) {
-      if (res.data.error_code == '5000') {
+      if (res.data.code == '1010') {
         app.globalData.authStatus = true;
         callback(res);
         wx.showToast({
           title: res.data.error_message,
           icon:"none"
         })
-        setTimeout(res=>{
-          wx.switchTab({
-            url: '/pages/personal/index/personal?status=ture'
-          })
-        },1500)
-        //login(_method, _url, _data, callback);
+        login(_method, _url, _data, callback);
       } else {
-
-        if (res.data.error_code != 0) {
-          wx.showToast({
-            title: res.data.error_message,
-            icon:"none"
-          })
-        }
-
         callback(res);
       }
     },

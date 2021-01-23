@@ -15,16 +15,9 @@ page{
   height: 550rpx;
 }
 
-.bg-image{
+.bg-image image{
   width: 100%;
   height: 400rpx;
-
-background: -webkit-linear-gradient(#FF4400,#FF7F50); 
-background: -o-linear-gradient(#FF4400,#FF7F50); 
-background: -moz-linear-gradient(#FF4400,#FF7F50); 
-background: linear-gradient(#FF4400,#FF7F50);
-  
-
 }
 .bg-container .user-info{
   width: 100%;
@@ -187,4 +180,3 @@ background: linear-gradient(#FF4400,#FF7F50);
   background: #66CDAA;
   color: white;
 }
-

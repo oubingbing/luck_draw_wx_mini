@@ -1,7 +1,7 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"enhance": false,
 		"postcss": false,
@@ -69,6 +69,12 @@
 					"name": "个人中心",
 					"pathName": "pages/personal/index/personal",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的抽奖记录",
+					"pathName": "pages/personal/activity_join_log/activity_join_log",
 					"scene": null
 				}
 			]

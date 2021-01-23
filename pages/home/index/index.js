@@ -15,6 +15,7 @@ Page({
 
   onLoad: function (e) {
     this.getActivities()
+    this.getActivityLogs()
   },
 
   onShow: function (option) {

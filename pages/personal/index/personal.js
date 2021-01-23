@@ -6,11 +6,12 @@ Page({
   data: {
     user: '',
     param: app.globalData.param,
-    showLoginButton: true
+    showLoginButton: app.globalData.authStatus
   },
   onLoad: function () {
     this.checkAuth();
     let userStorage = wx.getStorageSync('user');
+    console.log(userStorage)
     if (userStorage){
       this.setData({
         user: userStorage

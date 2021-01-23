@@ -1,9 +1,9 @@
-<view class="detail-container">
+<view class="detail-container" wx:if="{{show}}">
   <view class="detail-content">
     <!-- 头部 -->
     <view class="header">
       <view class="h-image">
-        <image mode="aspectFit" src="{{activity.AttachmentsSli[0]}}"></image>
+        <image mode="heightFix" src="{{activity.AttachmentsSli[0]}}"></image>
       </view>
       <view class="h-txt">
         <view class="h-name">{{activity.Name}}</view>
@@ -16,7 +16,13 @@
     </view>
 
     <view class="join-content">
-      <view class="join-btn" bindtap="joinActivity">参加抽奖</view>
+      <view class="join-btn" bindtap="joinActivity" wx:if="{{showJoinButton}}">参加抽奖</view>
+      <view wx:if="{{!showJoinButton}}">
+        <view class="queue-btn" wx:if="{{activity.ActivityLog.status==1}}">排队中...</view>
+        <view class="queue-btn" wx:if="{{activity.ActivityLog.status==2}}">已参加抽奖</view>
+        <view class="win-btn" wx:if="{{activity.ActivityLog.status==4}}">已中奖</view>
+        <view class="lose-btn" wx:if="{{activity.ActivityLog.status==5}}">未中奖</view>
+      </view>
     </view>
 
     <view class="gift-content">

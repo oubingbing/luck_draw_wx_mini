@@ -4,10 +4,12 @@ let conn
 
 Page({
   data: {
+    show:false,
     id:"",
     activity:null,
     socketToken:"",
     socketDomain:"",
+    showJoinButton:true
   },
 
   onLoad: function (options) {
@@ -21,6 +23,7 @@ Page({
     
   },
 
+  //连接socket
   connectSocket:function(){
     conn = wx.connectSocket({
       url: this.data.socketDomain+'/ws?token='+this.data.socketToken,
@@ -61,6 +64,7 @@ Page({
               icon:"none"
             })
           }
+          this.getDetail()
         }
       }
     })
@@ -84,7 +88,20 @@ Page({
     http.get(`/activity/detail?id=${this.data.id}`, {}, res => {
       let resDate = res.data
       if(resDate.code == 0){
-        this.setData({activity:resDate.data})
+        let data = resDate.data
+        let showJoinButton = this.data.showJoinButton
+        if(data.ActivityLog == null){
+          showJoinButton = true
+        }else if(data.ActivityLog.status == 3){
+          showJoinButton = true
+        }else{
+          showJoinButton = false
+        }
+        this.setData({
+          activity:data,
+          showJoinButton:showJoinButton,
+          show:true
+        })
       }else{
         wx.showToast({
           title: '请求失败',

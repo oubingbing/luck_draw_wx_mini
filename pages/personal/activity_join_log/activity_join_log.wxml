@@ -1,0 +1,56 @@
+<!--index.wxml-->
+<view class='all-container'>
+  <view class="container">
+
+  <view class='nav-bar-container'>
+    <view class='nav-bar'>
+      <view class='all {{select==1?"selected":""}}' 
+            bindtap="selected" 
+            data-type="1">全部</view>
+      <view class='follow {{select==2?"selected":""}}' 
+            bindtap="selected" 
+            data-type='2'>进行中</view>
+      <view class='hot {{select==4?"selected":""}}' 
+            bindtap="selected" 
+            data-type='4'>已中奖</view>
+      <view class='new {{select==5?"selected":""}}' 
+            bindtap="selected" 
+            data-type='5'>未中奖</view>
+    </view>
+  </view>
+
+    <!-- 内容主体 -->
+    <view class="body">
+      <view class="body-content">
+        <!-- 内容item -->
+        <view class="body-item">
+          <view class="b-item" 
+                bindtap="detail"
+                data-id="{{item.ID}}"
+                wx:for="{{activityLogs}}" 
+                wx:key="{{item.ID}}">
+            <view class="item-image">
+              <image mode="aspectFit" src="{{item.AttachmentsSli[0]}}"></image>
+            </view>
+            <view class="item-txt">
+              <view class="txt-title">{{item.Name}}</view>
+              <view class="txt-title-rule txt-title-color">
+                <view>组团满{{item.JoinLimitNum}}人自动开奖</view>
+                <view class="txt-title-join">已组团{{item.JoinNum}}人</view>
+              </view>
+              <view class="txt-title-rule">拼多多赞助</view>
+              <view class="icon-content">
+                <image wx:if="{{item.Status==2}}" mode="aspectFit" src="/image/running.png"></image>
+                <image wx:if="{{item.Status==5}}" mode="aspectFit" src="/image/lose.png"></image>
+                <image wx:if="{{item.Status==4}}" mode="aspectFit" src="/image/win.png"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
