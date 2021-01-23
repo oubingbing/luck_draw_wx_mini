@@ -13,12 +13,12 @@
                 wx:for="{{activities}}" 
                 wx:key="{{item.ID}}">
             <view class="item-image">
-              <image mode="aspectFit" src="{{item.AttachmentsSli[0]}}"></image>
+              <image mode="aspectFill" src="{{item.AttachmentsSli[0]}}"></image>
             </view>
             <view class="item-txt">
               <view class="txt-title">{{item.Name}}</view>
               <view class="txt-title-rule txt-title-color">
-                <view>组团满{{item.JoinLimitNum}}人自动开奖</view>
+                <view>满{{item.JoinLimitNum}}人自动开奖</view>
                 <view class="txt-title-join">已组团{{item.JoinNum}}人</view>
               </view>
               <view class="txt-title-rule">拼多多赞助</view>

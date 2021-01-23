@@ -32,10 +32,11 @@ page{
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: white;
 }
 
 .body-item{
-  width: 100%;
+  width: 95%;
   display: flex;
   flex-direction: column;
 }
@@ -63,6 +64,7 @@ page{
 .item-image image{
   width: 95%;
   height: 85%;
+  border-radius: 10rpx;
 }
 
 .item-txt{
@@ -73,6 +75,7 @@ page{
   justify-content: center;
   align-items: flex-start;
   position: relative;
+  padding-left: 15rpx;
 }
 
 .txt-title{
@@ -133,7 +136,7 @@ page{
   justify-content: space-between;
   width: 95%;
   font-weight: 200;
-  font-size: 35rpx;
+  font-size: 30rpx;
   margin-top: 5rpx;
   margin-bottom: 5rpx;
 }

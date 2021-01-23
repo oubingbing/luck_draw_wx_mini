@@ -35,11 +35,16 @@ Page({
   },
 
   getActivityLogs:function(){
+    wx.showLoading({
+      title: '加载中...',
+      icon:"none"
+    })
     let pageSize = this.data.pageSize
     let pageNum = this.data.pageNumber
     let order = this.data.orderBy
     let sort = this.data.sort
     http.get(`/activity/join_log?page_size=${pageSize}&page_num=${pageNum}&order_by=${order}&sort=${sort}&status=${this.data.select}`, {}, res => {
+      wx.hideLoading()
       let resDate = res.data
       if(resDate.code == 0){
         let data = this.data.activityLogs
@@ -63,9 +68,9 @@ Page({
    */
   onShareAppMessage: function (res) {
     return {
-      title: 'hi，同学，有人跟你表白了',
+      title: '一起来抽大奖啦',
       path: '/pages/home/index/index',
-      imageUrl:'http://img.qiuhuiyi.cn/share1.jpg',
+      imageUrl:'',
       success: function (res) {
         // 转发成功
       },

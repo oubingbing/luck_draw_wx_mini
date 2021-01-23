@@ -27,7 +27,7 @@ Page({
 
   checkLogin:function(){
     http.get(`/user/check_login`, {}, res => {
-      if (res.data.error_code == '5000') {
+      if (res.data.code == '1010' || res.data.code == '1011' || res.data.code == '1008') {
         app.globalData.authStatus = true;
         this.setData({
           showLoginButton : true
@@ -61,7 +61,6 @@ Page({
    */
   getPersonalInfo() {
     http.get(`/user/info`, {}, res => {
-      console.log(res.data.data);
       this.setData({
         user: res.data.data
       })
@@ -69,9 +68,9 @@ Page({
     });
   },
 
-  updateInfo: function () {
+  openDrawLog: function () {
     wx.navigateTo({
-      url: '/pages/personal/set_profile/set_profile'
+      url: '/pages/personal/activity_join_log/activity_join_log'
     })
   },
 

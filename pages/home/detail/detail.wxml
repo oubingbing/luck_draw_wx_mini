@@ -37,9 +37,29 @@
     </view>
 
     <view class="fixd-right">
-      <view class="fixd-right-img"><image src="/image/share-btn.png"></image></view>
-      <view class="fixd-right-img"><image src="/image/join-menber.png"></image></view>
+      <button class="share-btn" open-type="share">
+        <image src="/image/share-btn.png"></image>
+      </button>
+      <view class="fixd-right-img" bindtap="getMember">
+        <image src="/image/join-menber.png"></image>
+      </view>
+    </view>
+
+    <view class="memberes-content" wx:if="{{showMember}}">
+      <view class="members">
+          <view class="member-title">
+            <view class="member-title-txt">活动参与者</view>
+            <image bindtap="btnHideMember" src="/image/close-member.png"></image>
+          </view>
+          <view class="member-list">
+            <view class="member-list-item">
+              <image wx:for="{{members}}" wx:key="{{item.ID}}" src="{{item.AvatarUrl}}">
+              </image>
+            </view>
+          </view>
+      </view>
     </view>
 
   </view>
 </view>
+

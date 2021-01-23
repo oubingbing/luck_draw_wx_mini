@@ -24,7 +24,7 @@
   </view>
 
   <view class='content-container'>
-    <view class='content-item say-love' bindtap="opendPostList">
+    <view class='content-item say-love' bindtap="openDrawLog">
       <view><image src='/image/color-love.png' class='item-image'></image></view>
       <view class='word'>抽奖记录</view>
     </view>

@@ -47,7 +47,7 @@ const getUserInfo = function (code, _method = null, _url = null, _data = null, c
           }
         })
       } else {
-        console.log('未授权');
+        console.log("未授权")
       }
     }
   })
@@ -103,7 +103,7 @@ const httpRequest=function (_method, _url, _data, callback) {
     method: _method,
     data: _data,
     success: function (res) {
-      if (res.data.code == '1010') {
+      if (res.data.code == '1010' || res.data.code == '1011') {
         app.globalData.authStatus = true;
         callback(res);
         wx.showToast({

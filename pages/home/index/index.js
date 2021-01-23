@@ -14,8 +14,21 @@ Page({
   },
 
   onLoad: function (e) {
+    wx.showLoading({
+      title: '加载中...',
+      icon:"none"
+    })
+    let path = e.path
+    let id = e.id
+    if(path != "" && path != undefined){
+      setTimeout(res=>{
+        wx.navigateTo({
+          url: '/'+path+"?id="+id
+        })
+      },1000)
+    }
+
     this.getActivities()
-    this.getActivityLogs()
   },
 
   onShow: function (option) {
@@ -28,6 +41,10 @@ Page({
     let order = this.data.orderBy
     let sort = this.data.sort
     http.get(`/activity/page?page_size=${pageSize}&page_num=${pageNum}&order_by=${order}&sort=${sort}`, {}, res => {
+      wx.hideLoading()
+      setTimeout(res=>{
+        wx.stopPullDownRefresh();
+      },1000)
       let resDate = res.data
       if(resDate.code == 0){
         let data = this.data.activities
@@ -51,9 +68,9 @@ Page({
    */
   onShareAppMessage: function (res) {
     return {
-      title: 'hi，同学，有人跟你表白了',
+      title: '一起来抽大奖啦',
       path: '/pages/home/index/index',
-      imageUrl:'http://img.qiuhuiyi.cn/share1.jpg',
+      imageUrl:'',
       success: function (res) {
         // 转发成功
       },
@@ -69,9 +86,9 @@ Page({
   onPullDownRefresh: function () {
     this.setData({
       pageNumber: this.data.initPageNumber,
-      posts:[]
+      activities:[]
     });
-    this.getPost();
+    this.getActivities();
   },
 
   /**
@@ -79,9 +96,10 @@ Page({
    */
   onReachBottom: function () {
     this.setData({
-      showGeMoreLoadin: true
+      showGeMoreLoadin: true,
+      pageNumber: this.data.pageNumber+1,
     });
-    this.getPost();
+    this.getActivities();
   },
 
   /**

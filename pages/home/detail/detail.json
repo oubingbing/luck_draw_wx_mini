@@ -1,6 +1,6 @@
 {
   "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark",
-  "navigationBarTextStyle": "black",
-  "navigationBarBackgroundColor": "#FFFFFF"
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "抽奖详情"
 }
