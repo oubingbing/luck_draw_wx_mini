@@ -10,7 +10,7 @@ Page({
     activity:null,
     socketToken:"",
     socketDomain:"",
-    showJoinButton:true,
+    showJoinButton:false,
     showMember:false,
     members:[],
     finishAd:false
@@ -206,6 +206,7 @@ Page({
       if(resDate.code == 0){
         let data = resDate.data
         let showJoinButton = this.data.showJoinButton
+        let showJoinButtonOther = this.data.showJoinButtonOther
         if(data.ActivityLog == null){
           showJoinButton = true
         }else if(data.ActivityLog.status == 3){
@@ -213,13 +214,21 @@ Page({
         }else{
           showJoinButton = false
         }
+
+        let ac = this.data.activity
+        if(ac != null && ac != undefined){
+          ac.ActivityLog = data.ActivityLog
+          ac.JoinNum = data.JoinNum
+        }else{
+          ac = data
+        }
+
         this.setData({
-          activity:data,
-          showJoinButton:showJoinButton,
-          show:true
+          activity:ac,
+          show:true,
+          showJoinButton:showJoinButton
         })
-        console.log(data)
-        console.log(showJoinButton)
+        
         //是否开启广告
         console.log(data.Ad)
         if(data.OpenAd == 1 && data.Ad != ""){

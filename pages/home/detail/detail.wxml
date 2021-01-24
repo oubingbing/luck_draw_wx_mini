@@ -32,7 +32,7 @@
         <view class="gift-desc-item">{{activity.Gift.Des}}</view>
       </view>
       <view class="gift-image">
-        <image mode="widthFix" src="{{item}}" wx:for="{{activity.Gift.AttachmentsSli}}"></image>
+        <image mode="widthFix" src="{{item}}" wx:key="{{item}}" wx:for="{{activity.Gift.AttachmentsSli}}"></image>
       </view>
     </view>
 
