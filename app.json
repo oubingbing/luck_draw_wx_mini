@@ -3,7 +3,8 @@
     "pages/home/index/index",
     "pages/home/detail/detail",
     "pages/personal/index/personal",
-    "pages/personal/activity_join_log/activity_join_log"
+    "pages/personal/activity_join_log/activity_join_log",
+    "pages/personal/address/address"
   ],
   "window": {
     "backgroundTextStyle": "light",

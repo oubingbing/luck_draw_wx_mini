@@ -1,0 +1,115 @@
+page{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-content{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-item{
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  border-bottom-style:solid;
+  border-width:1rpx;
+  border-color: #EEE9E9;
+  padding: 20rpx 0rpx;
+}
+
+.address-left{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.address-right{
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.address-right image{
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.address-main{
+  color: gray;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+  padding: 10rpx 0rpx;
+}
+
+.address-detail{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 35rpx;
+}
+
+.user-info{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  color: gray;
+  font-size: 28rpx;
+}
+
+.user-name{
+  width: 30%;
+}
+
+.add-address{
+  width: 100%;
+  height: 110rpx;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 100;
+  bottom: 0rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-address-content{
+  background: #FF4400;
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 17rpx 0rpx;
+  border-radius: 40rpx;
+  color: white;
+}
+
+.add-address image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+
+.add-image-view{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,46 +1,102 @@
-<view class="personal-container">
+<view class="personal-contaier">
+  <view class='container'>
 
-  <view class="bg-container">
-      <view class='bg-image'>
-        <image mode="aspectFill" src='/image/personal-bg.jpg'></image>
+    <view class='header-content'>
+      <view class='header'>
+        <view class='header-left' wx:if="{{!showLoginButton}}">
+          <image src='{{user.avatar}}'></image>
+        </view>
+        <view class='header-right' wx:if="{{!showLoginButton}}">
+          <view class='nickname'>{{user.nickname}}</view>
+          <!--<view class='tag'>登出</view>-->
+        </view>
+        <view class="login-button" wx:if="{{showLoginButton}}">
+          <button open-type="getUserInfo" bindgetuserinfo="getAuthUserInfo">登录</button>
+        </view>
       </view>
-      <view>
-        <image wx:if="{{!showLoginButton}}" class='user-image' src='{{user.avatar}}'></image>
-      </view>
-      <view class='user-info'>
-          <view wx:if="{{!showLoginButton}}" class='user-name'>{{user.nickname}}</view>
-          <view class='article'>
-            <view class="word">每天都是好运气</view>
-            <view class="login-button" wx:if="{{showLoginButton}}">
-              <button open-type="getUserInfo" bindgetuserinfo="getAuthUserInfo">登录</button>
-            </view>
+    </view>
+
+    <view class='gap'></view>
+
+    <view class='content-body'>
+      <view class='gap'></view>
+      <view class='order-info'>
+        <view class='info-header'>
+          <view>我的组团记录</view>
+          <view class='all-order' catchtap='openOrder' data-type='0'>
+            <view>全部记录</view>
+            <image class='turn-right-icon' src='/image/turn-right.png'></image>
           </view>
+        </view>
+        <view class='order-content'>
+          <view class='order-item wait-pay' catchtap='openOrder' data-type='1'>
+            <image class='order-icon' src='/image/rank.png'></image>
+            <view class='circle' wx:if="{{waitPay>0}}">{{waitPay}}</view>
+            <view>排队中</view>
+          </view>
+          <view class='wait-pay order-item' catchtap='openOrder' data-type='2'>
+            <image class='order-icon' src='/image/join.png'></image>
+            <view class='circle' wx:if="{{waitDispatch>0}}">{{waitDispatch}}</view>
+            <view>已加入</view>
+          </view>
+          <view class='wait-pay order-item' catchtap='openOrder' data-type='5'>
+            <image class='order-icon' src='/image/join-fail.png'></image>
+            <view class='circle' wx:if="{{dispatching>0}}">{{dispatching}}</view>
+            <view>加入失败</view>
+          </view>
+          <view class='wait-pay order-item' catchtap='openOrder' data-type='6'>
+            <image class='order-icon' src='/image/win-icon.png'></image>
+            <view class='circle' wx:if="{{refunding>0}}">{{refunding}}</view>
+            <view>已中奖</view>
+          </view>
+          <view class='wait-pay order-item' catchtap='openOrder' data-type='7'>
+            <image class='order-icon' src='/image/lose-icon.png'></image>
+            <view class='circle' wx:if="{{finish>0}}">{{finish}}</view>
+            <view>未中奖</view>
+          </view>
+        </view>
       </view>
-  </view>
 
-  <view class='message' bindtap='openMessage'>
-    <view><image src='/image/my-message.png' class='item-image'></image></view>
-    <view class='word'>收货地址</view>
-  </view>
+      <view class='service-content'>
+        <view class='service-item' bindtap="OpenAddress">
+          <view class='item-icon'>
+            <image class='service-icon' src='/image/address.png'></image>
+            <view class='service-title'>收货地址</view>
+          </view>
+          <view class='direct'>
+            <image class='direct-icon' src='/image/turn-right.png'></image>
+          </view>
+        </view>
+        <view class='service-item'>
+          <view class='item-icon' bindtap="openDrawLog">
+            <image class='service-icon' src='/image/comment.png'></image>
+            <view class='service-title'>抽奖记录</view>
+          </view>
+          <view class='direct'>
+            <image class='direct-icon' src='/image/turn-right.png'></image>
+          </view>
+        </view>
+        <view class='service-item' bindtap='openTab' data-url='/pages/addres/index/index'>
+          <view class='item-icon'>
+            <image class='service-icon' src='/image/message.png'></image>
+            <view class='service-title'>我的消息</view>
+          </view>
+          <view class='direct'>
+            <image class='direct-icon' src='/image/turn-right.png'></image>
+          </view>
+        </view>
+        <view class='service-item'>
+          <view class='item-icon'>
+            <image class='service-icon' src='/image/servicer.png'></image>
+            <view class='service-title'>联系客服</view>
+          </view>
+          <view class='direct'>
+            <image class='direct-icon' src='/image/turn-right.png'></image>
+          </view>
+        </view>
+      </view>
 
-  <view class='content-container'>
-    <view class='content-item say-love' bindtap="openDrawLog">
-      <view><image src='/image/color-love.png' class='item-image'></image></view>
-      <view class='word'>抽奖记录</view>
     </view>
-    <view class='content-item sale' bindtap="openSaleList">
-      <view><image src='/image/select-sale.png' class='item-image'></image></view>
-      <view class='word'>我的消息</view>
-    </view>
-  </view>
 
-  <view class='suggestion' bindtap='openSugesstion' >
-    <view><image src='/image/suggestion.png' class='item-image'></image></view>
-    <view class='word'>联系客服</view>
   </view>
-
-  <view class='author'>
-    <view>power by 叶子</view>
-  </view>
-
 </view>

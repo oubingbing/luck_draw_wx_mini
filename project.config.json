@@ -75,6 +75,13 @@
 					"id": -1,
 					"name": "我的抽奖记录",
 					"pathName": "pages/personal/activity_join_log/activity_join_log",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "收货地址",
+					"pathName": "pages/personal/address/address",
 					"scene": null
 				}
 			]

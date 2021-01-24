@@ -1,0 +1,40 @@
+<view class="container">
+  <view class="container-content">
+
+    <view class="content-item">
+      <view class="address-left">
+        <view class="address-main">广东省茂名市电白县沙琅镇</view>
+        <view class="address-detail">沙琅中学120号</view>
+        <view class="user-info">
+          <view class="user-name">区志彬</view>
+          <view class="user-phone">1342514486</view>
+        </view>
+      </view>
+      <view class="address-right">
+        <image src="/image/modify.png"></image>
+      </view>
+    </view>
+
+      <view class="content-item">
+      <view class="address-left">
+        <view class="address-main">广东省茂名市电白县沙琅镇</view>
+        <view class="address-detail">沙琅中学120号</view>
+        <view class="user-info">
+          <view class="user-name">区志彬</view>
+          <view class="user-phone">1342514486</view>
+        </view>
+      </view>
+      <view class="address-right">
+        <image src="/image/modify.png"></image>
+      </view>
+    </view>
+
+    <view class="add-address">
+      <view class="add-address-content">
+        <view class="add-image-view"><image src="/image/add-address.png"></image></view>
+        <view>新建收货地址</view>
+      </view>
+    </view>
+
+  </view>
+</view>

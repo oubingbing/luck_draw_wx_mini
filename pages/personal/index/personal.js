@@ -77,6 +77,12 @@ Page({
     })
   },
 
+  OpenAddress:function(){
+    wx.navigateTo({
+      url: '/pages/personal/address/address'
+    })
+  },
+
   /**
  * 监听用户点击授权按钮
  */

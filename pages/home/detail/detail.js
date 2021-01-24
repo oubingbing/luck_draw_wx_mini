@@ -17,13 +17,9 @@ Page({
   },
 
   onLoad: function (options) {
-    wx.showLoading({
-      title: '加载中...',
-      icon:"none"
-    })
     let id = options.id
     this.setData({id:id})
-    this.getDetail()
+    this.getDetail(true)
 
     let userStorage = wx.getStorageSync('user');
     if(userStorage != "" && userStorage != undefined){
@@ -138,14 +134,23 @@ Page({
       let data = JSON.parse(res.data)
       if(data){
         if(data.code == 200){
-          wx.hideLoading()
           let pushData = data.data
+          console.log("推送的消息")
+          console.log(pushData)
           if (pushData.code == 0){
             //加入成功
-            wx.showToast({
-              title: pushData.message,
-              icon:"success"
+            this.data.showJoinButton = false
+            setTimeout(res=>{
+              wx.showToast({
+                title: pushData.message,
+                icon:"success",
+                duration:3000
+              })
+            },500)
+            setTimeout(res=>{
+              this.getDetail(false)
             })
+            
           }else{
             //加入失败
             wx.showToast({
@@ -153,7 +158,6 @@ Page({
               icon:"none"
             })
           }
-          this.getDetail()
         }
       }
     })
@@ -185,9 +189,19 @@ Page({
     });
   },
 
-  getDetail:function(){
+  getDetail:function(showLoad){
+    console.log("get detail")
+    if(showLoad){
+      wx.showLoading({
+        title: '加载中...',
+        icon:"none"
+      })
+    }
+
     http.get(`/activity/detail?id=${this.data.id}`, {}, res => {
-      wx.hideLoading()
+      if(showLoad){
+        wx.hideLoading()
+      }
       let resDate = res.data
       if(resDate.code == 0){
         let data = resDate.data
@@ -204,6 +218,8 @@ Page({
           showJoinButton:showJoinButton,
           show:true
         })
+        console.log(data)
+        console.log(showJoinButton)
         //是否开启广告
         console.log(data.Ad)
         if(data.OpenAd == 1 && data.Ad != ""){
@@ -220,7 +236,7 @@ Page({
 
   joinActivity:function(){
     wx.showLoading({
-      title: '加载中...',
+      title: '提交中...',
       icon:"none"
     })
     if(!conn){

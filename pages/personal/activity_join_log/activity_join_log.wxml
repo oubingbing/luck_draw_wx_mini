@@ -7,9 +7,15 @@
       <view class='all {{select==1?"selected":""}}' 
             bindtap="selected" 
             data-type="1">全部</view>
+      <view class='follow {{select==0?"selected":""}}' 
+            bindtap="selected" 
+            data-type='0'>排队中</view>
       <view class='follow {{select==2?"selected":""}}' 
             bindtap="selected" 
-            data-type='2'>进行中</view>
+            data-type='2'>已加入</view>
+      <view class='follow {{select==3?"selected":""}}' 
+            bindtap="selected" 
+            data-type='3'>加入失败</view>
       <view class='hot {{select==4?"selected":""}}' 
             bindtap="selected" 
             data-type='4'>已中奖</view>
