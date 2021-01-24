@@ -58,6 +58,10 @@ page{
   color: #FF4400;
 }
 
+.h-desc-item{
+  margin-left: 20rpx;
+}
+
 .h-spor{
   width: 100%;
   font-size: 27rpx;

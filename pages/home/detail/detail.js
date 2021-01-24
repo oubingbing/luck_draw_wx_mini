@@ -1,6 +1,7 @@
 const http = require("./../../../utils/http.js");
 const app = getApp()
 let conn
+let videoAd = null
 
 Page({
   data: {
@@ -11,7 +12,8 @@ Page({
     socketDomain:"",
     showJoinButton:true,
     showMember:false,
-    members:[]
+    members:[],
+    finishAd:false
   },
 
   onLoad: function (options) {
@@ -31,6 +33,78 @@ Page({
 
   onReady: function () {
     
+  },
+
+  loadAd:function(ad){
+    // 在页面onLoad回调事件中创建激励视频广告实例
+    if (wx.createRewardedVideoAd) {
+      videoAd = wx.createRewardedVideoAd({
+        adUnitId: ad
+      })
+      videoAd.onLoad(() => {})
+      videoAd.onError((err) => {
+        console.log(err)
+        wx.showToast({
+          title: '视频广告加载失败，请重试',
+          icon:"none",
+          duration:2500
+        })
+      })
+      videoAd.onClose((res) => {
+        console.log(res)
+        if(res.isEnded){
+          this.data.finishAd = true
+          this.joinActivity()
+        }else{
+          this.data.finishAd = false
+          wx.showToast({
+            title: '完成观看广告后才能参加组团抽奖哟',
+            icon:"none",
+            duration:2500
+          })
+        }
+      })
+    }
+  },
+
+  showAd:function(){
+    if (videoAd) {
+      videoAd.show().catch(() => {
+        // 失败重试
+        videoAd.load()
+          .then(() => videoAd.show())
+          .catch(err => {
+            console.log('激励视频 广告显示失败')
+          })
+      })
+    }
+  },
+
+  attempJoin:function(){
+    wx.showToast({
+      title: '观看广告后即可参加',
+      icon:"none",
+      duration:2000
+    })
+
+    let userStorage = wx.getStorageSync('user');
+    if(userStorage != "" && userStorage != undefined){
+      if(this.data.activity.OpenAd == 1 && this.data.activity.Ad != ""){
+        this.showAd()
+      }else{
+        this.joinActivity()
+      }
+    }else{
+      wx.showToast({
+        title: '请先登录后再操作',
+        icon:"none"
+      })
+      setTimeout(res=>{
+        wx.switchTab({
+          url: '/pages/personal/index/personal'
+        })
+      },1500)
+    }
   },
 
   //隐藏参与者页面
@@ -130,6 +204,11 @@ Page({
           showJoinButton:showJoinButton,
           show:true
         })
+        //是否开启广告
+        console.log(data.Ad)
+        if(data.OpenAd == 1 && data.Ad != ""){
+          this.loadAd(data.Ad)
+        }
       }else{
         wx.showToast({
           title: '请求失败',
@@ -140,43 +219,31 @@ Page({
   },
 
   joinActivity:function(){
-    let userStorage = wx.getStorageSync('user');
-    if(userStorage != "" && userStorage != undefined){
-      wx.showLoading({
-        title: '加载中...',
-        icon:"none"
-      })
-      if(!conn){
-        this.connectSocket()
-      }
-      
-      http.post(`/activity/join`, {id:this.data.id}, res => {
-        wx.hideLoading()
-        let resDate = res.data
-        if(resDate.code == 0){
-          wx.showLoading({
-            title: resDate.msg,
-            icon:"none"
-          })
-        }else{
-          wx.showToast({
-            title: resDate.msg,
-            icon:"none"
-          })
-        }
-      });
-    }else{
-      wx.showToast({
-        title: '请先登录后再操作',
-        icon:"none"
-      })
-
-      setTimeout(res=>{
-        wx.switchTab({
-          url: '/pages/personal/index/personal'
-        })
-      },1500)
+    wx.showLoading({
+      title: '加载中...',
+      icon:"none"
+    })
+    if(!conn){
+      this.connectSocket()
     }
+    
+    http.post(`/activity/join`, {id:this.data.id}, res => {
+      wx.hideLoading()
+      let resDate = res.data
+      if(resDate.code == 0){
+        wx.showLoading({
+          title: resDate.msg,
+          icon:"none",
+          duration:3000
+        })
+      }else{
+        wx.showToast({
+          title: resDate.msg,
+          icon:"none",
+          duration:3000
+        })
+      }
+    });
   },
 
   onShareAppMessage: function () {

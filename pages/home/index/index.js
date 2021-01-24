@@ -2,6 +2,8 @@ const util = require("./../../../utils/util.js");
 const http = require("./../../../utils/http.js");
 const app = getApp()
 
+let interstitialAd = null
+
 Page({
   data: {
     show_auth:false,
@@ -31,8 +33,37 @@ Page({
     this.getActivities()
   },
 
-  onShow: function (option) {
+  onReady: function (option) {
+    this.getAd()
+  },
 
+  getAd:function(){
+    http.get(`/ad/home`, {}, res => {
+      let resDate = res.data
+      if(resDate.code == 0){
+        if(resDate.data != ""){
+          this.showAd(resDate.data)
+        }
+      }
+    });
+  },
+
+  showAd:function(ad){
+    // 显示首页广告
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({
+        adUnitId: ad
+      })
+      interstitialAd.onLoad(() => {})
+      interstitialAd.onError((err) => {})
+      interstitialAd.onClose(() => {})
+    }
+
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
   },
 
   getActivities:function(){

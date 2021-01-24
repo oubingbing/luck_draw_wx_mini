@@ -9,14 +9,14 @@
         <view class="h-name">{{activity.Name}}</view>
         <view class="h-desc">
           <view>组团满{{activity.JoinLimitNum}}人自动开奖</view>
-          <view>组团已达{{activity.JoinNum}}人</view>
+          <view class="h-desc-item">组团已达{{activity.JoinNum}}人</view>
         </view>
         <view class="h-spor">拼多多赞助</view>
       </view>
     </view>
 
     <view class="join-content">
-      <view class="join-btn" bindtap="joinActivity" wx:if="{{showJoinButton}}">参加抽奖</view>
+      <view class="join-btn" bindtap="attempJoin" wx:if="{{showJoinButton}}">参加抽奖</view>
       <view wx:if="{{!showJoinButton}}">
         <view class="queue-btn" wx:if="{{activity.ActivityLog.status==1}}">排队中...</view>
         <view class="queue-btn" wx:if="{{activity.ActivityLog.status==2}}">已参加抽奖</view>

@@ -18,11 +18,10 @@ Page({
       })
     }
     this.setData({ param: app.globalData.param })
-    this.getPersonalInfo()
   },
 
   onShow: function () {
-    this.checkLogin();
+    //this.checkLogin();
   },
 
   checkLogin:function(){
@@ -61,10 +60,14 @@ Page({
    */
   getPersonalInfo() {
     http.get(`/user/info`, {}, res => {
-      this.setData({
-        user: res.data.data
-      })
-      wx.setStorageSync('user', res.data.data);
+      if(res != undefined && res != ""){
+        if(res.data.code == 0){
+          this.setData({
+            user: res.data.data
+          })
+          wx.setStorageSync('user', res.data.data);
+        }
+      }
     });
   },
 
