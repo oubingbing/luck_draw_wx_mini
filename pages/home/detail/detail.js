@@ -3,6 +3,7 @@ const app = getApp()
 let conn
 let videoAd = null
 
+let that = ""
 Page({
   data: {
     show:false,
@@ -25,6 +26,7 @@ Page({
     if(userStorage != "" && userStorage != undefined){
       this.getSocketToken()
     }
+    that = this
   },
 
   onReady: function () {
@@ -171,6 +173,9 @@ Page({
       }else{
 
       }
+      if(!conn){
+        this.connectSocket()
+      }
     });
   },
 
@@ -197,16 +202,16 @@ Page({
         icon:"none"
       })
     }
-
-    http.get(`/activity/detail?id=${this.data.id}`, {}, res => {
+    
+    http.get(`/activity/detail?id=${this.data.id}`, {},function(res) {
       if(showLoad){
         wx.hideLoading()
       }
       let resDate = res.data
       if(resDate.code == 0){
         let data = resDate.data
-        let showJoinButton = this.data.showJoinButton
-        let showJoinButtonOther = this.data.showJoinButtonOther
+        let showJoinButton = that.data.showJoinButton
+        let showJoinButtonOther = that.data.showJoinButtonOther
         if(data.ActivityLog == null){
           showJoinButton = true
         }else if(data.ActivityLog.status == 3){
@@ -215,7 +220,7 @@ Page({
           showJoinButton = false
         }
 
-        let ac = this.data.activity
+        let ac = that.data.activity
         if(ac != null && ac != undefined){
           ac.ActivityLog = data.ActivityLog
           ac.JoinNum = data.JoinNum
@@ -223,7 +228,7 @@ Page({
           ac = data
         }
 
-        this.setData({
+        that.setData({
           activity:ac,
           show:true,
           showJoinButton:showJoinButton
@@ -248,9 +253,6 @@ Page({
       title: '提交中...',
       icon:"none"
     })
-    if(!conn){
-      this.connectSocket()
-    }
     
     http.post(`/activity/join`, {id:this.data.id}, res => {
       wx.hideLoading()
