@@ -146,7 +146,7 @@ Page({
               wx.showToast({
                 title: pushData.message,
                 icon:"success",
-                duration:3000
+                duration:2000
               })
             },500)
             setTimeout(res=>{
