@@ -237,7 +237,7 @@ Page({
         //是否开启广告
         console.log(data.Ad)
         if(data.OpenAd == 1 && data.Ad != ""){
-          this.loadAd(data.Ad)
+          that.loadAd(data.Ad)
         }
       }else{
         wx.showToast({
