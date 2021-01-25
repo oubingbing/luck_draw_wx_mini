@@ -82,6 +82,14 @@
 					"id": -1,
 					"name": "收货地址",
 					"pathName": "pages/personal/address/address",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "新建收货地址",
+					"pathName": "pages/personal/address_create/address_create",
+					"query": "",
 					"scene": null
 				}
 			]

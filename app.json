@@ -4,7 +4,8 @@
     "pages/home/detail/detail",
     "pages/personal/index/personal",
     "pages/personal/activity_join_log/activity_join_log",
-    "pages/personal/address/address"
+    "pages/personal/address/address",
+    "pages/personal/address_create/address_create"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -30,7 +30,7 @@
     </view>
 
     <view class="add-address">
-      <view class="add-address-content">
+      <view class="add-address-content" bindtap="openAddressCreate">
         <view class="add-image-view"><image src="/image/add-address.png"></image></view>
         <view>新建收货地址</view>
       </view>
