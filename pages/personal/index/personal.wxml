@@ -23,7 +23,7 @@
       <view class='order-info'>
         <view class='info-header'>
           <view>我的组团记录</view>
-          <view class='all-order' catchtap='openOrder' data-type='0'>
+          <view class='all-order' data-type='0' bindtap="openDrawLog">
             <view>全部记录</view>
             <image class='turn-right-icon' src='/image/turn-right.png'></image>
           </view>
@@ -67,8 +67,8 @@
             <image class='direct-icon' src='/image/turn-right.png'></image>
           </view>
         </view>
-        <view class='service-item'>
-          <view class='item-icon' bindtap="openDrawLog">
+        <view class='service-item' bindtap="openDrawLog">
+          <view class='item-icon'>
             <image class='service-icon' src='/image/comment.png'></image>
             <view class='service-title'>抽奖记录</view>
           </view>
