@@ -24,6 +24,12 @@ Page({
     //this.checkLogin();
   },
 
+  openMessage:function(){
+    wx.navigateTo({
+      url: '/pages/personal/inbox/inbox'
+    })
+  },
+
   checkLogin:function(){
     http.get(`/user/check_login`, {}, res => {
       if (res.data.code == '1010' || res.data.code == '1011' || res.data.code == '1008') {

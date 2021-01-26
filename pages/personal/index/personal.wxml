@@ -76,7 +76,7 @@
             <image class='direct-icon' src='/image/turn-right.png'></image>
           </view>
         </view>
-        <view class='service-item' bindtap='openTab' data-url='/pages/addres/index/index'>
+        <view class='service-item' bindtap='openMessage' data-url='/pages/addres/index/index'>
           <view class='item-icon'>
             <image class='service-icon' src='/image/message.png'></image>
             <view class='service-title'>我的消息</view>
