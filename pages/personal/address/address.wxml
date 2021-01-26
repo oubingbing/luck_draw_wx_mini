@@ -1,37 +1,26 @@
 <view class="container">
   <view class="container-content">
 
-    <view class="content-item">
+    <view class="content-item" wx:for="{{addressList}}" wx:key="{{item.Id}}">
       <view class="address-left">
-        <view class="address-main">广东省茂名市电白县沙琅镇</view>
-        <view class="address-detail">沙琅中学120号</view>
+        <view class="address-main">{{item.Province}}{{item.City}}{{item.District}}</view>
+        <view class="address-detail">{{item.DetailAddress}}</view>
         <view class="user-info">
-          <view class="user-name">区志彬</view>
-          <view class="user-phone">1342514486</view>
+          <view class="user-name">{{item.Receiver}}</view>
+          <view class="user-phone">{{item.Phone}}</view>
         </view>
       </view>
       <view class="address-right">
-        <image src="/image/modify.png"></image>
-      </view>
-    </view>
-
-      <view class="content-item">
-      <view class="address-left">
-        <view class="address-main">广东省茂名市电白县沙琅镇</view>
-        <view class="address-detail">沙琅中学120号</view>
-        <view class="user-info">
-          <view class="user-name">区志彬</view>
-          <view class="user-phone">1342514486</view>
-        </view>
-      </view>
-      <view class="address-right">
-        <image src="/image/modify.png"></image>
+        <image src="/image/modify.png" bindtap="openAddressUpdate" data-id="{{item.Id}}"></image>
+        <image bindtap="delete" data-id="{{item.Id}}" src="/image/delete-address.png"></image>
       </view>
     </view>
 
     <view class="add-address">
       <view class="add-address-content" bindtap="openAddressCreate">
-        <view class="add-image-view"><image src="/image/add-address.png"></image></view>
+        <view class="add-image-view">
+          <image src="/image/add-address.png"></image>
+        </view>
         <view>新建收货地址</view>
       </view>
     </view>

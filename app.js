@@ -7,6 +7,7 @@ App({
     this.globalData.appKey = config.alianceKey;
     this.globalData.imageUrl = config.qiniuDomain+"/";
     this.globalData.bgIimage = config.bgImage;
+    this.globalData.loadAddress = false
     
     this.globalData.param = false;
     this.globalData.authStatus = false;
@@ -20,6 +21,7 @@ App({
     imageUrl:'',
     bgImage:'',
     param:false,
-    authStatus:false
+    authStatus:false,
+    loadAddress:false
   }
 })
