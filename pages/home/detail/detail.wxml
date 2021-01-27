@@ -25,7 +25,16 @@
       </view>
     </view>
 
+    <!-- 提示信息 -->
+    <!--<view class="join-content">
+      <view class="join-btn" bindtap="attempJoin" wx:if="{{showJoinButton}}">参加抽奖</view>
+    </view>-->
+
     <view class="gift-content">
+      <view class="gift-title">活动规则</view>
+      <view class="gift-desc">
+        <view class="gift-desc-item">{{activity.Des}}</view>
+      </view>
       <view class="gift-title">礼品描述</view>
       <view class="gift-desc">
         <view class="gift-desc-item">{{activity.Gift.Name}}</view>
