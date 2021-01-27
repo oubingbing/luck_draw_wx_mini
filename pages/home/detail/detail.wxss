@@ -87,6 +87,10 @@ page{
   border-radius: 40rpx;
 }
 
+.activity-end{
+  background: gray;
+}
+
 .queue-btn{
   background: #0b988f;
   font-size: 30rpx;

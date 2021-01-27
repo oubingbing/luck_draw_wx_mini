@@ -14,6 +14,7 @@ Page({
   },
 
   onLoad: function (e) {
+    this.setData({select:e.type})
     this.getActivityLogs()
   },
 

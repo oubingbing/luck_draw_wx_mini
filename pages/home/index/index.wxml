@@ -32,7 +32,7 @@
                 <view>满{{item.JoinLimitNum}}人自动开奖</view>
                 <view class="txt-title-join">已组团{{item.JoinNum}}人</view>
               </view>
-              <view class="txt-title-rule">拼多多赞助</view>
+              <view class="txt-title-rule">逆鳞科技赞助</view>
             </view>
           </view>
         </view>

@@ -29,27 +29,27 @@
           </view>
         </view>
         <view class='order-content'>
-          <view class='order-item wait-pay' catchtap='openOrder' data-type='1'>
+          <view class='order-item wait-pay' bindtap="openDrawLog" data-type='1'>
             <image class='order-icon' src='/image/rank.png'></image>
             <view class='circle' wx:if="{{waitPay>0}}">{{waitPay}}</view>
             <view>排队中</view>
           </view>
-          <view class='wait-pay order-item' catchtap='openOrder' data-type='2'>
+          <view class='wait-pay order-item' bindtap="openDrawLog" data-type='2'>
             <image class='order-icon' src='/image/join.png'></image>
             <view class='circle' wx:if="{{waitDispatch>0}}">{{waitDispatch}}</view>
             <view>已加入</view>
           </view>
-          <view class='wait-pay order-item' catchtap='openOrder' data-type='5'>
+          <view class='wait-pay order-item' bindtap="openDrawLog" data-type='3'>
             <image class='order-icon' src='/image/join-fail.png'></image>
             <view class='circle' wx:if="{{dispatching>0}}">{{dispatching}}</view>
             <view>加入失败</view>
           </view>
-          <view class='wait-pay order-item' catchtap='openOrder' data-type='6'>
+          <view class='wait-pay order-item' bindtap="openDrawLog" data-type='4'>
             <image class='order-icon' src='/image/win-icon.png'></image>
             <view class='circle' wx:if="{{refunding>0}}">{{refunding}}</view>
             <view>已中奖</view>
           </view>
-          <view class='wait-pay order-item' catchtap='openOrder' data-type='7'>
+          <view class='wait-pay order-item' bindtap="openDrawLog" data-type='5'>
             <image class='order-icon' src='/image/lose-icon.png'></image>
             <view class='circle' wx:if="{{finish>0}}">{{finish}}</view>
             <view>未中奖</view>
@@ -67,7 +67,7 @@
             <image class='direct-icon' src='/image/turn-right.png'></image>
           </view>
         </view>
-        <view class='service-item' bindtap="openDrawLog">
+        <view class='service-item' bindtap="openDrawLog" data-type='0'>
           <view class='item-icon'>
             <image class='service-icon' src='/image/comment.png'></image>
             <view class='service-title'>抽奖记录</view>
@@ -86,13 +86,15 @@
           </view>
         </view>
         <view class='service-item'>
-          <view class='item-icon'>
-            <image class='service-icon' src='/image/servicer.png'></image>
-            <view class='service-title'>联系客服</view>
-          </view>
-          <view class='direct'>
-            <image class='direct-icon' src='/image/turn-right.png'></image>
-          </view>
+          <button open-type="contact" id="btn" class="s-btn">
+            <view class='item-icon'>
+              <image class='service-icon' src='/image/servicer.png'></image>
+              <view class='service-title'>联系客服</view>
+            </view>
+            <view class='direct'>
+              <image class='direct-icon' src='/image/turn-right.png'></image>
+            </view>
+          </button>
         </view>
       </view>
 

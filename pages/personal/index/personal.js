@@ -77,9 +77,11 @@ Page({
     });
   },
 
-  openDrawLog: function () {
+  openDrawLog: function (e) {
+    let type = e.currentTarget.dataset.type
+    console.log(e)
     wx.navigateTo({
-      url: '/pages/personal/activity_join_log/activity_join_log'
+      url: '/pages/personal/activity_join_log/activity_join_log?type='+type
     })
   },
 
