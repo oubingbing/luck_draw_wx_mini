@@ -61,7 +61,7 @@
 					"id": 0,
 					"name": "抽奖详情",
 					"pathName": "pages/home/detail/detail",
-					"query": "id=28",
+					"query": "id=29",
 					"scene": null
 				},
 				{

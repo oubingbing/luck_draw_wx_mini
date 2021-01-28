@@ -14,7 +14,8 @@ Page({
     showJoinButton:false,
     showMember:false,
     members:[],
-    finishAd:false
+    finishAd:false,
+    getPhone:false
   },
 
   onLoad: function (options) {
@@ -30,7 +31,38 @@ Page({
   },
 
   onReady: function () {
-    
+
+  },
+
+  getUserPhone:function(e){
+    console.log("授权获取用户手机号")
+    console.log(e)
+
+    var iv = e.detail.iv
+    var encryptedData = e.detail.encryptedData
+    var code = "";
+
+    wx.login({
+      success: res => {
+        console.log(res);
+        code = res.code
+
+        http.post(`/user/get_phone`, {iv:iv,encrypted_data:encryptedData,code:code}, res => {
+          wx.hideLoading()
+          let resDate = res.data
+          if(resDate.code == 0){
+            
+          }else{
+            
+          }
+        });
+      }
+    })
+  },
+
+  btnGetPhone:function(e){
+    console.log("隐藏")
+    this.setData({getPhone:false})
   },
 
   loadAd:function(ad){
@@ -230,6 +262,15 @@ Page({
           show:true,
           showJoinButton:showJoinButton
         })
+
+        if(ac.Type == 3){
+          let userStorage = wx.getStorageSync('user');
+        if (userStorage != "" &&userStorage != undefined){
+          if(userStorage.phone == "" || userStorage.phone == undefined){
+            that.setData({getPhone:true})
+          }
+        }
+        }
         
         //是否开启广告
         console.log(data.Ad)
@@ -277,6 +318,10 @@ Page({
         })
       }
     });
+  },
+
+  hidePhone:function(){
+
   },
 
   onShareAppMessage: function () {

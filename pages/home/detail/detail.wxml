@@ -28,7 +28,16 @@
       </view>
     </view>
 
+    <!-- 提示信息 -->
+    <!--<view class="join-content">
+      <view class="join-btn" bindtap="attempJoin" wx:if="{{showJoinButton}}">参加抽奖</view>
+    </view>-->
+
     <view class="gift-content">
+      <view class="gift-title">活动规则</view>
+      <view class="gift-desc">
+        <view class="gift-desc-item">{{activity.Des}}</view>
+      </view>
       <view class="gift-title">礼品描述</view>
       <view class="gift-desc">
         <view class="gift-desc-item">{{activity.Gift.Name}}</view>
@@ -60,6 +69,14 @@
               </image>
             </view>
           </view>
+      </view>
+    </view>
+
+    <view class="get-phone" wx:if="{{getPhone}}">
+      <view class="get-phone-content">
+        <image catchtap="btnGetPhone" src="/image/close-member.png"></image>
+        <view class="get-phone-des">为了能够将话费发放到您的手机，请授权我们获取您的手机号码，谢谢您</view>
+        <button bindgetphonenumber="getUserPhone" open-type="getPhoneNumber" class="get-phone-button">授权手机号</button>
       </view>
     </view>
 
