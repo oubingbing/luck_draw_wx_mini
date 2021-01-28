@@ -8,7 +8,6 @@
         </view>
         <view class='header-right' wx:if="{{!showLoginButton}}">
           <view class='nickname'>{{user.nickname}}</view>
-          <!--<view class='tag'>登出</view>-->
         </view>
         <view class="login-button" wx:if="{{showLoginButton}}">
           <button open-type="getUserInfo" bindgetuserinfo="getAuthUserInfo">登录</button>
