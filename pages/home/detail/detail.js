@@ -24,7 +24,7 @@ Page({
 
     let userStorage = wx.getStorageSync('user');
     if(userStorage != "" && userStorage != undefined){
-      this.getSocketToken()
+      //this.getSocketToken()
     }
     that = this
   },
@@ -149,9 +149,7 @@ Page({
                 duration:2000
               })
             },500)
-            setTimeout(res=>{
-              this.getDetail(false)
-            })
+            this.getDetail(false)
             
           }else{
             //加入失败
@@ -211,7 +209,6 @@ Page({
       if(resDate.code == 0){
         let data = resDate.data
         let showJoinButton = that.data.showJoinButton
-        let showJoinButtonOther = that.data.showJoinButtonOther
         if(data.ActivityLog == null){
           showJoinButton = true
         }else if(data.ActivityLog.status == 3){
@@ -258,11 +255,20 @@ Page({
       wx.hideLoading()
       let resDate = res.data
       if(resDate.code == 0){
-        wx.showLoading({
-          title: resDate.msg,
-          icon:"none",
-          duration:3000
-        })
+        //wx.showLoading({
+        //  title: resDate.msg,
+        //  icon:"none",
+        //  duration:3000
+        //})
+
+        setTimeout(res=>{
+          wx.showToast({
+            title: resDate.msg,
+            icon:"success",
+            duration:3000
+          })
+        },500)
+        this.getDetail(false)
       }else{
         wx.showToast({
           title: resDate.msg,

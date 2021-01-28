@@ -1,6 +1,17 @@
 <!--index.wxml-->
+
 <view class='all-container'>
   <view class="container">
+
+    <view class='message-tip' 
+        wx:if="{{newMessageNumber != 0}}" 
+        bindtap='openMessage'>
+      <view class='tip-content'>
+        <view>飘来{{newMessageNumber}}条好消息</view>
+        <view><image src='/image/qiqiu.png'></image></view>
+      </view>
+    </view>
+
 
     <!-- 内容主体 -->
     <view class="body">
@@ -21,7 +32,7 @@
                 <view>满{{item.JoinLimitNum}}人自动开奖</view>
                 <view class="txt-title-join">已组团{{item.JoinNum}}人</view>
               </view>
-              <view class="txt-title-rule">拼多多赞助</view>
+              <view class="txt-title-rule">逆鳞科技赞助</view>
             </view>
           </view>
         </view>

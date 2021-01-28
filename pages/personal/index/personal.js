@@ -24,6 +24,12 @@ Page({
     //this.checkLogin();
   },
 
+  openMessage:function(){
+    wx.navigateTo({
+      url: '/pages/personal/inbox/inbox'
+    })
+  },
+
   checkLogin:function(){
     http.get(`/user/check_login`, {}, res => {
       if (res.data.code == '1010' || res.data.code == '1011' || res.data.code == '1008') {
@@ -71,9 +77,11 @@ Page({
     });
   },
 
-  openDrawLog: function () {
+  openDrawLog: function (e) {
+    let type = e.currentTarget.dataset.type
+    console.log(e)
     wx.navigateTo({
-      url: '/pages/personal/activity_join_log/activity_join_log'
+      url: '/pages/personal/activity_join_log/activity_join_log?type='+type
     })
   },
 

@@ -12,7 +12,8 @@ Page({
     initPageNumber: 1,
     orderBy:"id",
     sort:"desc",
-    activities:[]
+    activities:[],
+    newMessageNumber:0
   },
 
   onLoad: function (e) {
@@ -33,8 +34,21 @@ Page({
     this.getActivities()
   },
 
+  onShow:function(){
+    this.getMessage()
+  },
+
   onReady: function (option) {
     this.getAd()
+  },
+
+  getMessage:function(){
+    http.get(`/inbox/un_read`, {}, res => {
+      let resDate = res.data
+      if(resDate.code == 0){
+        this.setData({newMessageNumber:resDate.data})
+      }
+    });
   },
 
   getAd:function(){
@@ -91,6 +105,12 @@ Page({
     let id = e.currentTarget.dataset.id
     wx.navigateTo({
       url: '/pages/home/detail/detail?id='+id
+    })
+  },
+
+  openMessage:function(){
+    wx.navigateTo({
+      url: '/pages/personal/inbox/inbox'
     })
   },
 

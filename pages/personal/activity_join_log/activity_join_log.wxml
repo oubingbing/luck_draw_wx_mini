@@ -4,12 +4,12 @@
 
   <view class='nav-bar-container'>
     <view class='nav-bar'>
-      <view class='all {{select==1?"selected":""}}' 
+      <view class='all {{select==0?"selected":""}}' 
             bindtap="selected" 
-            data-type="1">全部</view>
-      <view class='follow {{select==0?"selected":""}}' 
+            data-type="0">全部</view>
+      <view class='follow {{select==1?"selected":""}}' 
             bindtap="selected" 
-            data-type='0'>排队中</view>
+            data-type='1'>排队中</view>
       <view class='follow {{select==2?"selected":""}}' 
             bindtap="selected" 
             data-type='2'>已加入</view>

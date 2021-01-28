@@ -5,7 +5,8 @@
     "pages/personal/index/personal",
     "pages/personal/activity_join_log/activity_join_log",
     "pages/personal/address/address",
-    "pages/personal/address_create/address_create"
+    "pages/personal/address_create/address_create",
+    "pages/personal/inbox/inbox"
   ],
   "window": {
     "backgroundTextStyle": "light",
