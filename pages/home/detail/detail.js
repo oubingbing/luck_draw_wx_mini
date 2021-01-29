@@ -35,25 +35,32 @@ Page({
   },
 
   getUserPhone:function(e){
-    console.log("授权获取用户手机号")
-    console.log(e)
-
     var iv = e.detail.iv
     var encryptedData = e.detail.encryptedData
     var code = "";
-
     wx.login({
       success: res => {
         console.log(res);
         code = res.code
-
         http.post(`/user/get_phone`, {iv:iv,encrypted_data:encryptedData,code:code}, res => {
           wx.hideLoading()
           let resDate = res.data
           if(resDate.code == 0){
-            
+            let userStorage = wx.getStorageSync('user');
+            if(userStorage != "" && userStorage != undefined){
+              userStorage.phone = resDate.data
+              wx.setStorageSync('user', userStorage);
+            }
+            this.setData({getPhone:false})
+            wx.showToast({
+              title: "授权成功",
+              icon:"none"
+            })
           }else{
-            
+            wx.showToast({
+              title: resDate.msg,
+              icon:"none"
+            })
           }
         });
       }
@@ -61,7 +68,6 @@ Page({
   },
 
   btnGetPhone:function(e){
-    console.log("隐藏")
     this.setData({getPhone:false})
   },
 

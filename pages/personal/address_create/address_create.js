@@ -198,7 +198,7 @@ Page({
        },1500)
       }else{
         wx.showToast({
-          title: '保存失败，请重试',
+          title: resDate.msg,
           icon:"none"
         })
       }

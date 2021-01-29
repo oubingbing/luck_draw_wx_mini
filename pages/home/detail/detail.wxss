@@ -331,3 +331,22 @@ page{
   right: 85rpx;
   top: 250rpx;
 }
+
+.address-tip{
+  color: #66CDAA;
+}
+
+.get-phone-btn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.not-auth-phone{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+  text-align: center;
+  margin-top: 50rpx;
+}

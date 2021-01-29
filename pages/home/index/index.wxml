@@ -3,6 +3,16 @@
 <view class='all-container'>
   <view class="container">
 
+    <view class='nav-bar-container'>
+    <view class='nav-bar'>
+      <view class='all {{select==item.type?"selected":""}}' 
+            wx:for="{{tabList}}"
+            wx:key="{{item.type}}"
+            bindtap="selected" 
+            data-type="{{item.type}}">{{item.txt}}</view>
+    </view>
+  </view>
+
     <view class='message-tip' 
         wx:if="{{newMessageNumber != 0}}" 
         bindtap='openMessage'>

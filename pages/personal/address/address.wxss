@@ -51,9 +51,24 @@ page{
   color: gray;
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   font-size: 28rpx;
   padding: 10rpx 0rpx;
+  align-items: center;
+}
+
+.address-main image{
+  width: 60rpx;
+  height: 60rpx;
+  margin-top: 5rpx;
+  margin-right: 10rpx;
+}
+
+.address-main-image{
+  width: 70rpx;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rpx;
 }
 
 .address-detail{
@@ -72,7 +87,7 @@ page{
 }
 
 .user-name{
-  width: 30%;
+  width: 15%;
 }
 
 .add-address{

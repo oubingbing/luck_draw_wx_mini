@@ -49,3 +49,9 @@
 
   </view>
 </view>
+
+<view class="tip">
+  <view class="tip-content">
+      请您确保设置了默认收货地址，否则如果您抽中了礼品，我们会随机获取一个您设置的地址进行发货。
+  </view>
+</view>

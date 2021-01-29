@@ -6,6 +6,8 @@ let interstitialAd = null
 
 Page({
   data: {
+    select:0,
+    tabList:[],
     show_auth:false,
     pageSize: 10,
     pageNumber: 1,
@@ -34,12 +36,39 @@ Page({
     this.getActivities()
   },
 
+    /**
+   * 获取具体类型的贴子
+   */
+  selected(e) {
+    let objType = e.target.dataset.type;
+    this.setData({
+      select: objType,
+      activities: []
+    })
+
+    this.setData({
+      pageNumber: this.data.initPageNumber
+    });
+
+    this.getActivities();
+  },
+
   onShow:function(){
+    this.getCatogry()
     this.getMessage()
   },
 
   onReady: function (option) {
     this.getAd()
+  },
+
+  getCatogry:function(){
+    http.get(`/activity/category`, {}, res => {
+      let resDate = res.data
+      if(resDate.code == 0){
+        this.setData({tabList:resDate.data})
+      }
+    });
   },
 
   getMessage:function(){
@@ -85,7 +114,8 @@ Page({
     let pageNum = this.data.pageNumber
     let order = this.data.orderBy
     let sort = this.data.sort
-    http.get(`/activity/page?page_size=${pageSize}&page_num=${pageNum}&order_by=${order}&sort=${sort}`, {}, res => {
+    let select = this.data.select
+    http.get(`/activity/page?page_size=${pageSize}&page_num=${pageNum}&order_by=${order}&sort=${sort}&type=${select}`, {}, res => {
       wx.hideLoading()
       setTimeout(res=>{
         wx.stopPullDownRefresh();

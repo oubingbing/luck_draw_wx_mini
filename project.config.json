@@ -1,105 +1,101 @@
 {
-	"description": "项目配置文件。",
-	"setting": {
-		"urlCheck": false,
-		"es6": true,
-		"enhance": false,
-		"postcss": false,
-		"preloadBackgroundData": false,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"nodeModules": false,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"uglifyFileName": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"compileHotReLoad": false,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"useIsolateContext": true,
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.10.0",
-	"appid": "wxa0d7aa1607c5ac21",
-	"projectname": "%E9%87%91%E6%8A%BD%E6%8A%BD",
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"current": -1,
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": -1,
-			"list": [
-				{
-					"id": 0,
-					"name": "抽奖详情",
-					"pathName": "pages/home/detail/detail",
-					"query": "id=29",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "个人中心",
-					"pathName": "pages/personal/index/personal",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "我的抽奖记录",
-					"pathName": "pages/personal/activity_join_log/activity_join_log",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "收货地址",
-					"pathName": "pages/personal/address/address",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 4,
-					"name": "新建收货地址",
-					"pathName": "pages/personal/address_create/address_create",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "我的消息",
-					"pathName": "pages/personal/inbox/inbox",
-					"query": "",
-					"scene": null
-				}
-			]
-		}
-	}
+  "description": "项目配置文件。",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "postcss": false,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": false,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.10.0",
+  "appid": "wxa0d7aa1607c5ac21",
+  "projectname": "%E9%87%91%E6%8A%BD%E6%8A%BD",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "抽奖详情",
+          "pathName": "pages/home/detail/detail",
+          "query": "id=31",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "个人中心",
+          "pathName": "pages/personal/index/personal",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的抽奖记录",
+          "pathName": "pages/personal/activity_join_log/activity_join_log",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "收货地址",
+          "pathName": "pages/personal/address/address",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 4,
+          "name": "新建收货地址",
+          "pathName": "pages/personal/address_create/address_create",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的消息",
+          "pathName": "pages/personal/inbox/inbox",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

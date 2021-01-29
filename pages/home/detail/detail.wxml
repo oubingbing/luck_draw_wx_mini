@@ -36,10 +36,13 @@
     <view class="gift-content">
       <view class="gift-title">活动规则</view>
       <view class="gift-desc">
+        <view class="gift-desc-item address-tip">请确保您已填写了收货地址哟，要不然如果您抽中了奖品我们无法进行发货</view>
+      </view>
+      <view class="gift-desc">
         <view class="gift-desc-item">{{activity.Des}}</view>
       </view>
       <view class="gift-title">礼品描述</view>
-      <view class="gift-desc">
+      <view class="gift-desc" wx:if="{{activity.Type == 2}}">
         <view class="gift-desc-item">{{activity.Gift.Name}}</view>
         <view class="gift-desc-item">{{activity.Gift.Des}}</view>
       </view>
@@ -74,9 +77,11 @@
 
     <view class="get-phone" wx:if="{{getPhone}}">
       <view class="get-phone-content">
-        <image catchtap="btnGetPhone" src="/image/close-member.png"></image>
         <view class="get-phone-des">为了能够将话费发放到您的手机，请授权我们获取您的手机号码，谢谢您</view>
-        <button bindgetphonenumber="getUserPhone" open-type="getPhoneNumber" class="get-phone-button">授权手机号</button>
+        <view class="get-phone-btn">
+          <button bindgetphonenumber="getUserPhone" open-type="getPhoneNumber" class="get-phone-button">授权手机号</button>
+          <view class="not-auth-phone" bindtap="btnGetPhone"><view>暂不授权</view></view>
+        </view>
       </view>
     </view>
 
