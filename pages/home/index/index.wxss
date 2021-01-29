@@ -108,7 +108,8 @@ page{
   justify-content: center;
   height: 100rpx;
   align-items: center;
-  margin-top: 20rpx;
+  margin-top: 100rpx;
+  margin-bottom: -20rpx;
 }
 
 .message-tip .tip-content{
