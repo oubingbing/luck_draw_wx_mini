@@ -50,6 +50,10 @@ Page({
   },
 
   getInbox:function(){
+    wx.showLoading({
+      title: '加载中...',
+      icon:"none"
+    })
     http.get(`/inbox/page?page_size=${this.data.pageSize}&page_num=${this.data.pageNumber}&order_by=${this.data.orderBy}&sort=${this.data.sort}`, {},res=> {
       wx.hideLoading()
       let resDate = res.data

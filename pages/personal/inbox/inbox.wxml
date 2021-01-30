@@ -8,12 +8,14 @@
           data-id="{{item.Id}}"
           data-obj="{{item.ObjectId}}">
       <view class="item-left">
-        <image src="{{item.AttachmentsSli[0]}}"></image>
+        <image src="{{item.AttachmentsSli[0]}}" mode="aspectFit" class="activity-image"></image>
+        <image src="/image/un-read.png" wx:if="{{item.ReadAt == ''}}" class="unread-image"></image>
       </view>
       <view class="item-right">
-        <view class="title">{{item.Name}}</view>
+        <view class="title">
+          <view>{{item.Name}}</view>
+        </view>
         <view class="tip">{{item.Content}}</view>
-        <image src="/image/un-read.png" wx:if="{{item.ReadAt == ''}}"></image>
       </view>
     </view>
 

@@ -53,6 +53,11 @@ Page({
           data.push(item)
         })
         this.setData({activityLogs:data})
+      }else{
+        wx.showToast({
+          title: resDate.msg,
+          icon:"none"
+        })
       }
     });
   },
