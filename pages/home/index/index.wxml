@@ -3,7 +3,7 @@
 <view class='all-container'>
   <view class="container">
 
-    <view class='nav-bar-container'>
+    <view class='nav-bar-container' wx:if="{{tabList.length > 0}}">
     <view class='nav-bar'>
       <view class='all {{select==item.type?"selected":""}}' 
             wx:for="{{tabList}}"
@@ -34,7 +34,7 @@
                 wx:for="{{activities}}" 
                 wx:key="{{item.ID}}">
             <view class="item-image">
-              <image mode="aspectFill" src="{{item.AttachmentsSli[0]}}"></image>
+              <image mode="aspectFit" src="{{item.AttachmentsSli[0]}}"></image>
             </view>
             <view class="item-txt">
               <view class="txt-title">{{item.Name}}</view>

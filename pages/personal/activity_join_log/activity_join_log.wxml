@@ -36,7 +36,7 @@
                 wx:for="{{activityLogs}}" 
                 wx:key="{{item.ActivityId}}">
             <view class="item-image">
-              <image mode="aspectFill" src="{{item.AttachmentsSli[0]}}"></image>
+              <image mode="aspectFit" src="{{item.AttachmentsSli[0]}}"></image>
             </view>
             <view class="item-txt">
               <view class="txt-title">{{item.Name}}</view>

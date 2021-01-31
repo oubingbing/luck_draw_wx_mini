@@ -111,6 +111,7 @@ const httpRequest=function (_method, _url, _data, callback) {
           icon:"none"
         })
         login(_method, _url, _data, callback);
+        console.log("重新登录")
       } else {
         callback(res);
       }
