@@ -25,7 +25,7 @@ Page({
 
     let userStorage = wx.getStorageSync('user');
     if(userStorage != "" && userStorage != undefined){
-      //this.getSocketToken()
+      this.getSocketToken()
     }
     that = this
   },
@@ -297,17 +297,15 @@ Page({
       title: '提交中...',
       icon:"none"
     })
+
+    setTimeout(res=>{
+      that.getSocketToken()
+    },1000)
     
     http.post(`/activity/join`, {id:this.data.id}, res => {
       wx.hideLoading()
       let resDate = res.data
       if(resDate.code == 0){
-        //wx.showLoading({
-        //  title: resDate.msg,
-        //  icon:"none",
-        //  duration:3000
-        //})
-
         setTimeout(res=>{
           wx.showToast({
             title: resDate.msg,
@@ -315,7 +313,9 @@ Page({
             duration:3000
           })
         },500)
-        this.getDetail(false)
+        setTimeout(r=>{
+          that.getDetail(false)
+        },3000)
       }else{
         wx.showToast({
           title: resDate.msg,

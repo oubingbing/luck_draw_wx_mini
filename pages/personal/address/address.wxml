@@ -4,7 +4,7 @@
     <view class="content-item" wx:for="{{addressList}}" wx:key="{{item.Id}}">
       <view class="address-left">
         <view class="address-main">
-          <image src="/image/default.png"></image>
+          <image src="/image/default.png" wx:if="{{item.UseType == 1}}"></image>
           <view>{{item.Province}}{{item.City}}{{item.District}}</view>
         </view>
         <view class="address-detail">{{item.DetailAddress}}</view>

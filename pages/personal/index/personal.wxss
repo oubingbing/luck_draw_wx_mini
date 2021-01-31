@@ -98,7 +98,7 @@ page{
   background: white;
   padding: 20rpx 20rpx;
   border-radius: 20rpx;
-  box-shadow: 0rpx 0rpx 10rpx 5rpx gainsboro;
+  box-shadow: 0rpx 0rpx 8rpx 3rpx gainsboro;
 }
 
 .order-info .info-header{
@@ -169,7 +169,7 @@ page{
   flex-direction: column;
   margin-top: 170rpx;
   font-size: 30rpx;
-  box-shadow: 0rpx 0rpx 10rpx 5rpx gainsboro;
+  box-shadow: 0rpx 0rpx 8rpx 3rpx gainsboro;
   background: white;
   border-radius: 20rpx;
 }
@@ -179,10 +179,11 @@ page{
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 30rpx 0rpx;
+  padding: 25rpx 0rpx;
   border-bottom-style:solid;
   border-width:1rpx;
   border-color: #EDEDED;
+  font-size: 30rpx;
 }
 
 .service-item .item-icon{
@@ -230,4 +231,8 @@ page{
 
 #btn{
   height: 50rpx;
+}
+
+.service-title{
+  font-size: 30rpx;
 }

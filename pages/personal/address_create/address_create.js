@@ -13,7 +13,7 @@ Page({
       city:"市",
       district:"县区等",
       detail_address:"",
-      useType:true
+      use_type:true,
     }
   },
 
@@ -32,6 +32,10 @@ Page({
   },
 
   getDetail:function(){
+    wx.showLoading({
+      title: '加载中...',
+      icon:"none"
+    })
     http.get(`/address/detail?id=`+this.data.address.id, {},res=> {
       wx.hideLoading()
       let resDate = res.data
@@ -48,7 +52,8 @@ Page({
 
   switchChange:function(e){
     let address = this.data.address
-    address.useType = e.detail.value
+    address.use_type = e.detail.value
+    console.log(address)
     this.setData({address:address})
   },
 
@@ -122,8 +127,20 @@ Page({
       })
       return false
     }
+    console.log(data)
+    wx.showLoading({
+      title: '提交中...',
+      icon:"none"
+    })
+
+    if(data.use_type == true){
+      data.use_type = 1
+    }else{
+      data.use_type = 2
+    }
 
     http.put(`/address/update`, data, res => {
+      wx.hideLoading()
       let resDate = res.data
       if(resDate.code == 0){
        wx.showToast({
@@ -185,7 +202,18 @@ Page({
       return false
     }
 
+    wx.showLoading({
+      title: '提交中...',
+      icon:"none"
+    })
+
+    if(data.use_type == true){
+      data.use_type = 1
+    }else{
+      data.use_type = 2
+    }
     http.post(`/address/create`, data, res => {
+      wx.hideLoading()
       let resDate = res.data
       if(resDate.code == 0){
        wx.showToast({

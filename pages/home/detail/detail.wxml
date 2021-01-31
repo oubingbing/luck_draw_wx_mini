@@ -3,7 +3,7 @@
     <!-- 头部 -->
     <view class="header">
       <view class="h-image">
-        <image mode="heightFix" src="{{activity.AttachmentsSli[0]}}"></image>
+        <image mode="aspectFill" src="{{activity.AttachmentsSli[0]}}"></image>
       </view>
       <view class="h-txt">
         <view class="h-name">{{activity.Name}}</view>

@@ -43,6 +43,14 @@
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
 		"plugin": {
 			"list": []
 		},
@@ -54,12 +62,6 @@
 		},
 		"miniprogram": {
 			"list": [
-				{
-					"name": "抽奖详情",
-					"pathName": "pages/home/detail/detail",
-					"query": "id=31",
-					"scene": null
-				},
 				{
 					"id": -1,
 					"name": "个人中心",
@@ -93,6 +95,13 @@
 					"name": "我的消息",
 					"pathName": "pages/personal/inbox/inbox",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "抽奖详情",
+					"pathName": "pages/home/detail/detail",
+					"query": "id=58",
 					"scene": null
 				}
 			]

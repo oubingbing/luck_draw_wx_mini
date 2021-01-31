@@ -35,8 +35,8 @@
       <view class="username content-item">
         <view class="label">默认地址</view>
         <switch color="#FF4400" 
-                checked="{{address.useType}}" 
-                value="{{address.useType}}"
+                checked="{{address.use_type}}" 
+                value="{{address.use_type}}"
                 bindchange="switchChange"/>
       </view>
     </view>

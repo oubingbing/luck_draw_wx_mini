@@ -15,7 +15,8 @@ Page({
     orderBy:"id",
     sort:"desc",
     activities:[],
-    newMessageNumber:0
+    newMessageNumber:0,
+    activityId:app.globalData.activityId
   },
 
   onLoad: function (e) {
@@ -51,15 +52,41 @@ Page({
     });
 
     this.getActivities();
+    wx.showLoading({
+      title: '加载中...',
+      icon:"none"
+    })
   },
 
   onShow:function(){
     this.getCatogry()
     this.getMessage()
+
+    if(app.globalData.activityId != 0){
+      this.getDetail()
+    }
   },
 
   onReady: function (option) {
     this.getAd()
+  },
+
+  getDetail:function(){
+    let id = app.globalData.activityId
+    app.globalData.activityId = 0
+    http.get(`/activity/detail?id=${id}`, {},res=> {
+      let resDate = res.data
+      if(resDate.code == 0){
+        let activities = this.data.activities
+        activities = activities.map(item=>{
+          if(id == item.ID){
+            item.JoinNum = resDate.data.JoinNum
+          }
+          return item
+        })
+        this.setData({activities:activities})
+      }
+    });
   },
 
   getCatogry:function(){
@@ -133,6 +160,7 @@ Page({
 
   detail:function(e){
     let id = e.currentTarget.dataset.id
+    app.globalData.activityId = id
     wx.navigateTo({
       url: '/pages/home/detail/detail?id='+id
     })

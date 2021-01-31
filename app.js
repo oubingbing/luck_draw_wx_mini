@@ -8,6 +8,7 @@ App({
     this.globalData.imageUrl = config.qiniuDomain+"/";
     this.globalData.bgIimage = config.bgImage;
     this.globalData.loadAddress = false
+    this.globalData.activityId = 0
     
     this.globalData.param = false;
     this.globalData.authStatus = false;
@@ -22,6 +23,7 @@ App({
     bgImage:'',
     param:false,
     authStatus:false,
-    loadAddress:false
+    loadAddress:false,
+    activityId:0
   }
 })

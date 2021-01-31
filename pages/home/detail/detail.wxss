@@ -1,5 +1,5 @@
 page{
-  background-color: #F5F5F5;
+  background-color: #FF4400;
   display: flex;
   flex-direction: column;
 }
@@ -8,10 +8,11 @@ page{
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .detail-container .detail-content{
-  width: 100%;
+  width: 94%;
   display: flex;
   flex-direction: column;
 }
@@ -20,9 +21,9 @@ page{
   width: 100%;
   display: flex;
   flex-direction: column;
-  background: white;
   padding-bottom: 20rpx 0rpx;
   align-items: center;
+  box-shadow: 0rpx 0rpx 10rpx 5rpx #FF4400;
 }
 
 .h-image{
@@ -30,22 +31,31 @@ page{
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: white;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
 }
 
 .h-image image{
   width: 100%;
-  height: 400rpx;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
 }
 
 .h-txt{
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding-top: 20rpx;
+  background: whitesmoke;
+  align-items: center;
+  border-bottom-right-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
 }
 
 .h-name{
   font-size: 35rpx;
+  width: 90%;
 }
 
 .h-desc{
@@ -56,6 +66,7 @@ page{
   font-size: 27rpx;
   padding: 10rpx 0rpx;
   color: #FF4400;
+  width: 90%;
 }
 
 .h-desc-item{
@@ -66,17 +77,19 @@ page{
   width: 100%;
   font-size: 27rpx;
   color: gray;
+  width: 90%;
 }
 
 .join-content{
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 10rpx;
-  background: white;
+  margin-top: 20rpx;
+  background: whitesmoke;
   align-items: center;
   justify-content: center;
   height: 130rpx;
+  border-radius: 10rpx;
 }
 
 .join-btn{
@@ -119,10 +132,12 @@ page{
   width: 100%;
   display: flex;
   flex-direction: column;
-  background: white;
-  margin-top: 10rpx;
+  background: whitesmoke;
+  margin-top: 20rpx;
   align-items: center;
   padding-bottom: 50rpx;
+  border-radius: 10rpx;
+  margin-bottom: 50rpx;
 }
 
 .join-detail{
