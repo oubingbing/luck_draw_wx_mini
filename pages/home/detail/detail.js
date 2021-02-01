@@ -21,7 +21,8 @@ Page({
     members:[],
     finishAd:false,
     getPhone:false,
-    wins:[]
+    wins:[],
+    showWin:false
   },
 
   onLoad: function (options) {
@@ -252,6 +253,12 @@ Page({
     });
   },
 
+  hideWin:function(){
+    that.setData({
+      showWin:false
+    })
+  },
+
   getDetail:function(showLoad){
     console.log("get detail")
     if(showLoad){
@@ -283,6 +290,14 @@ Page({
           ac.JoinNum = data.JoinNum
         }else{
           ac = data
+        }
+
+        if(data.ActivityLog != null){
+          if(data.ActivityLog.status == 4 || data.ActivityLog.status == 6 ||data.ActivityLog.status == 7){
+            that.setData({
+              showWin:true
+            })
+          }
         }
 
         that.setData({
