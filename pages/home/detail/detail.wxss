@@ -159,7 +159,7 @@ page{
   color: gray;
   border-left-style:solid;
   border-width:7rpx;
-  border-color: darkgray;
+  border-color: #FF8C00;
   padding-left: 10rpx;
 }
 
@@ -383,10 +383,17 @@ page{
   color: gray;
   border-left-style:solid;
   border-width:7rpx;
-  border-color: darkgray;
+  border-color: #FF8C00;
   padding-left: 10rpx;
   margin-bottom: 30rpx;
 }
+
+.my-result{
+  width: 90%;
+  font-size: 27rpx;
+  color: #FF4400;
+}
+
 .success-item{
   width: 90%;
   display: flex;
