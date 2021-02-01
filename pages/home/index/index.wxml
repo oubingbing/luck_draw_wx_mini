@@ -13,19 +13,17 @@
     </view>
   </view>
 
-    <view class='message-tip' 
-        wx:if="{{newMessageNumber != 0}}" 
-        bindtap='openMessage'>
-      <view class='tip-content'>
-        <view>飘来{{newMessageNumber}}条好消息</view>
-        <view><image src='/image/qiqiu.png'></image></view>
-      </view>
-    </view>
-
-
     <!-- 内容主体 -->
     <view class="body">
       <view class="body-content">
+        <view class='message-tip' 
+        wx:if="{{newMessageNumber != 0}}" 
+        bindtap='openMessage'>
+          <view class='tip-content'>
+            <view>飘来{{newMessageNumber}}条好消息</view>
+            <view><image src='/image/qiqiu.png'></image></view>
+          </view>
+        </view>
         <!-- 内容item -->
         <view class="body-item">
           <view class="b-item" 
@@ -42,7 +40,10 @@
                 <view>满{{item.JoinLimitNum}}人自动开奖</view>
                 <view class="txt-title-join">已组团{{item.JoinNum}}人</view>
               </view>
-              <view class="txt-title-rule">逆鳞科技赞助</view>
+              <view class="txt-title-rule end-activity">
+                <view>逆鳞科技赞助</view>
+                <view>{{item.Status == 4 ? "活动已结束":""}}</view>
+              </view>
             </view>
           </view>
         </view>

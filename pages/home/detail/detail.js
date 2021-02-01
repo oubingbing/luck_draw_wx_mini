@@ -6,6 +6,11 @@ let videoAd = null
 let that = ""
 Page({
   data: {
+    pageSize: 100,
+    pageNumber: 1,
+    initPageNumber: 1,
+    orderBy:"id",
+    sort:"desc",
     show:false,
     id:"",
     activity:null,
@@ -15,18 +20,17 @@ Page({
     showMember:false,
     members:[],
     finishAd:false,
-    getPhone:false
+    getPhone:false,
+    wins:[],
+    showWin:false
   },
 
   onLoad: function (options) {
     let id = options.id
     this.setData({id:id})
+    this.getWins()
     this.getDetail(true)
 
-    let userStorage = wx.getStorageSync('user');
-    if(userStorage != "" && userStorage != undefined){
-      this.getSocketToken()
-    }
     that = this
   },
 
@@ -117,15 +121,14 @@ Page({
   },
 
   attempJoin:function(){
-    wx.showToast({
-      title: '观看广告后即可参加',
-      icon:"none",
-      duration:2000
-    })
-
     let userStorage = wx.getStorageSync('user');
     if(userStorage != "" && userStorage != undefined){
       if(this.data.activity.OpenAd == 1 && this.data.activity.Ad != ""){
+        wx.showToast({
+          title: '观看广告后即可参加',
+          icon:"none",
+          duration:2000
+        })
         this.showAd()
       }else{
         this.joinActivity()
@@ -215,6 +218,26 @@ Page({
     });
   },
 
+  getWins:function(){
+    let pageSize = this.data.pageSize
+    let pageNum = this.data.pageNumber
+    let order = this.data.orderBy
+    let sort = this.data.sort
+    http.get(`/activity/wins?activity_id=${this.data.id}&page_size=${pageSize}&page_num=${pageNum}&order_by=${order}&sort=${sort}`, {}, res => {
+      wx.hideLoading()
+      let resDate = res.data
+      if(resDate.code == 0){
+       let wins = this.data.wins
+       resDate.data.map(item=>{
+          wins.push(item)
+       })
+       this.setData({wins:wins})
+      }else{
+ 
+      }
+    });
+  },
+
   getMember:function(){
     http.get(`/activity/member?activity_id=${this.data.id}`, {}, res => {
       wx.hideLoading()
@@ -228,6 +251,12 @@ Page({
         })
       }
     });
+  },
+
+  hideWin:function(){
+    that.setData({
+      showWin:false
+    })
   },
 
   getDetail:function(showLoad){
@@ -263,6 +292,14 @@ Page({
           ac = data
         }
 
+        if(data.ActivityLog != null){
+          if(data.ActivityLog.status == 4 || data.ActivityLog.status == 6 ||data.ActivityLog.status == 7){
+            that.setData({
+              showWin:true
+            })
+          }
+        }
+
         that.setData({
           activity:ac,
           show:true,
@@ -293,37 +330,49 @@ Page({
   },
 
   joinActivity:function(){
-    wx.showLoading({
-      title: '提交中...',
-      icon:"none"
-    })
-
-    setTimeout(res=>{
-      that.getSocketToken()
-    },1000)
-    
-    http.post(`/activity/join`, {id:this.data.id}, res => {
-      wx.hideLoading()
-      let resDate = res.data
-      if(resDate.code == 0){
-        setTimeout(res=>{
-          wx.showToast({
-            title: resDate.msg,
-            icon:"success",
-            duration:3000
-          })
-        },500)
-        setTimeout(r=>{
-          that.getDetail(false)
-        },3000)
-      }else{
-        wx.showToast({
-          title: resDate.msg,
-          icon:"none",
-          duration:3000
+    that.getSocketToken()
+    wx.requestSubscribeMessage({
+      tmplIds:["GYJrbEJfKSFWIKcakFc03dm8F27IcBVoz8OUf2aawQI","HHOHnkh0UmYr-bifPvf1o0LWUHpBynwbxLbfPVMDQoA"],
+      success:res=>{
+        console.log("success")
+        console.log(res)
+      },
+      fail:res=>{
+        console.log("fail")
+        console.log(res)
+      },
+      complete:res=>{
+        console.log("complete")
+        console.log(res)
+        wx.showLoading({
+          title: '提交中...',
+          icon:"none"
         })
+  
+        http.post(`/activity/join`, {id:this.data.id}, res => {
+          wx.hideLoading()
+          let resDate = res.data
+          if(resDate.code == 0){
+            setTimeout(res=>{
+              wx.showToast({
+                title: resDate.msg,
+                icon:"success",
+                duration:3000
+              })
+            },500)
+            setTimeout(r=>{
+              that.getDetail(false)
+            },3000)
+          }else{
+            wx.showToast({
+              title: resDate.msg,
+              icon:"none",
+              duration:3000
+            })
+          }
+        });
       }
-    });
+    })
   },
 
   hidePhone:function(){
@@ -354,3 +403,16 @@ Page({
     }
   }
 })
+
+
+
+
+
+
+
+
+
+
+
+
+

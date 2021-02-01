@@ -159,7 +159,7 @@ page{
   color: gray;
   border-left-style:solid;
   border-width:7rpx;
-  border-color: darkgray;
+  border-color: #FF8C00;
   padding-left: 10rpx;
 }
 
@@ -233,7 +233,7 @@ page{
   width: 100%;
   height: 100%;
   z-index: 100;
-  position: absolute;
+  position: fixed;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -306,7 +306,6 @@ page{
   flex-direction: column;
   justify-content: center;
    background:rgba(2,2,2,0.7);
-   
 }
 
 .get-phone-content{
@@ -363,5 +362,114 @@ page{
   flex-direction: column;
   font-size: 28rpx;
   text-align: center;
+  margin-top: 50rpx;
+}
+
+.success-member{
+  width: 100%;
+  display: flex;
+  background: whitesmoke;
+  margin-top: 15rpx;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25rpx 0rpx;
+}
+
+.sucess-title{
+  font-size: 30rpx;
+  width: 90%;
+  color: gray;
+  border-left-style:solid;
+  border-width:7rpx;
+  border-color: #FF8C00;
+  padding-left: 10rpx;
+  margin-bottom: 30rpx;
+}
+
+.my-result{
+  width: 90%;
+  font-size: 27rpx;
+  color: #FF4400;
+}
+
+.success-item{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  border-top-style:solid;
+  border-width:1rpx;
+  border-color: #EEE9E9;
+  padding: 15rpx 0rpx;
+}
+
+.success-user{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.success-user image{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 25rpx;
+}
+
+.success-user-name{
+  font-size: 27rpx;
+  margin-left: 20rpx;
+  color: darkgray;
+}
+
+.success-txt{
+  font-size: 30rpx;
+  color: #FF4400;
+}
+
+.show-win{
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  position: fixed;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+   background:rgba(2,2,2,0.7);
+}
+
+.win-image{
+  width: 70%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.win-image image{
+  width: 500rpx;
+  height: 500rpx;
+}
+
+.win-txt{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  margin-top: 5rpx;
+  font-size: 35rpx;
+}
+
+.comfirm-win{
+  background: #FF4400;
+  font-size: 30rpx;
+  padding: 20rpx 100rpx;
+  color: white;
+  border-radius: 40rpx;
   margin-top: 50rpx;
 }
