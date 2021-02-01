@@ -391,7 +391,6 @@ Page({
     if(this.data.activity.ShareImageSli != null){
       image = this.data.activity.ShareImageSli[0]
     }else{
-      console.log('sdfsd')
       image = this.data.activity.AttachmentsSli[0]
     }
 
