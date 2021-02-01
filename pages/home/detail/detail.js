@@ -384,10 +384,15 @@ Page({
     let image = "/image/personal-bg.jpg"
     if(this.data.activity.ShareTitle != ""){
       title = this.data.activity.ShareTitle
+    }else{
+      title = this.data.activity.Name
     }
 
-    if(this.data.activity.ShareImageSli.length > 0){
+    if(this.data.activity.ShareImageSli != null){
       image = this.data.activity.ShareImageSli[0]
+    }else{
+      console.log('sdfsd')
+      image = this.data.activity.AttachmentsSli[0]
     }
 
     return {

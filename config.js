@@ -12,8 +12,8 @@ const config={
   }
 }
 
-const domain = config.prod.domain;
-//const domain = config.dev.domain;
+//const domain = config.prod.domain;
+const domain = config.dev.domain;
 
 
 module.exports = {

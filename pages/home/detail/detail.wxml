@@ -99,7 +99,7 @@
       <image src="/image/you-win.png" mode="aspectFit"></image>
     </view>
     <view class="win-txt">
-      <view>恭喜获得小米扫地机器人</view>
+      <view>{{activity.ActivityLog.remark}}</view>
       <view class="comfirm-win" bindtap="hideWin">确定</view>
     </view>
   </view>

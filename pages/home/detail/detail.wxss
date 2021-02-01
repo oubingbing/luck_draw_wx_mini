@@ -369,7 +369,7 @@ page{
   width: 100%;
   display: flex;
   background: whitesmoke;
-  margin-top: 15rpx;
+  margin-top: 20rpx;
   border-radius: 10rpx;
   display: flex;
   flex-direction: column;

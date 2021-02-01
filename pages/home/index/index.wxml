@@ -20,7 +20,7 @@
         wx:if="{{newMessageNumber != 0}}" 
         bindtap='openMessage'>
           <view class='tip-content'>
-            <view>飘来{{newMessageNumber}}条好消息</view>
+            <view>您有{{newMessageNumber}}条未读消息</view>
             <view><image src='/image/qiqiu.png'></image></view>
           </view>
         </view>
