@@ -28,10 +28,17 @@
       </view>
     </view>
 
-    <!-- 提示信息 -->
-    <!--<view class="join-content">
-      <view class="join-btn" bindtap="attempJoin" wx:if="{{showJoinButton}}">参加抽奖</view>
-    </view>-->
+    <!-- 中奖人源 -->
+    <view class="success-member" wx:if="{{activity.Status == 4}}">
+      <view class="sucess-title">中奖者</view>
+      <view class="success-item" wx:for="{{wins}}" wx:key="{{item.ID}}">
+        <view class="success-user">
+          <image src="{{item.AvatarUrl}}"></image>
+          <view class="success-user-name">{{item.NickName}}</view>
+        </view>
+        <view class="success-txt">{{item.Remark}}</view>
+      </view>
+    </view>
 
     <view class="gift-content">
       <view class="gift-title">活动规则</view>
@@ -60,21 +67,6 @@
       </view>
     </view>
 
-    <view class="memberes-content" wx:if="{{showMember}}">
-      <view class="members">
-          <view class="member-title">
-            <view class="member-title-txt">活动参与者</view>
-            <image bindtap="btnHideMember" src="/image/close-member.png"></image>
-          </view>
-          <view class="member-list">
-            <view class="member-list-item">
-              <image wx:for="{{members}}" wx:key="{{item.ID}}" src="{{item.AvatarUrl}}">
-              </image>
-            </view>
-          </view>
-      </view>
-    </view>
-
     <view class="get-phone" wx:if="{{getPhone}}">
       <view class="get-phone-content">
         <view class="get-phone-des">为了能够将话费发放到您的手机，请授权我们获取您的手机号码，谢谢您</view>
@@ -87,4 +79,18 @@
 
   </view>
 </view>
+
+<view class="memberes-content" wx:if="{{showMember}}">
+  <view class="members">
+    <view class="member-title">
+      <view class="member-title-txt">活动参与者</view>
+      <image bindtap="btnHideMember" src="/image/close-member.png"></image>
+      </view>
+      <view class="member-list">
+        <view class="member-list-item">
+          <image wx:for="{{members}}" wx:key="{{item.ID}}" src="{{item.AvatarUrl}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
 
