@@ -23,7 +23,7 @@
       <view wx:else>
         <view class="queue-btn" wx:if="{{activity.ActivityLog.status==1}}">排队中...</view>
         <view class="queue-btn" wx:if="{{activity.ActivityLog.status==2}}">已参加抽奖</view>
-        <view class="win-btn" wx:if="{{activity.ActivityLog.status==4}}">已中奖</view>
+        <view class="win-btn" wx:if="{{activity.ActivityLog.status==4 || activity.ActivityLog.status==6 || activity.ActivityLog.status==7}}">已中奖</view>
         <view class="lose-btn" wx:if="{{activity.ActivityLog.status==5}}">未中奖</view>
       </view>
     </view>
