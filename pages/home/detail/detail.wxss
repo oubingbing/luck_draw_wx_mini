@@ -51,6 +51,7 @@ page{
   align-items: center;
   border-bottom-right-radius: 10rpx;
   border-bottom-left-radius: 10rpx;
+  padding-bottom: 20rpx;
 }
 
 .h-name{

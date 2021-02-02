@@ -28,9 +28,9 @@
       </view>
     </view>
 
-    <!-- 中奖人源 -->
+    <!-- 中奖人 -->
     <view class="success-member" wx:if="{{activity.Status == 4}}">
-      <view class="sucess-title">中奖者</view>
+      <view class="sucess-title">中奖名单</view>
       <view class="success-item" wx:for="{{wins}}" wx:key="{{item.ID}}">
         <view class="success-user">
           <image src="{{item.AvatarUrl}}"></image>

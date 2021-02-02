@@ -44,7 +44,7 @@ page{
 
 .b-item{
   width: 95%;
-  height: 260rpx;
+  height: 220rpx;
   display: flex;
   flex-direction: row;
   background: white;
@@ -66,6 +66,14 @@ page{
   width: 95%;
   height: 85%;
   border-radius: 10rpx;
+}
+
+.new-tag{
+  width: 60rpx;
+  height: 60rpx;
+  z-index: 100;
+  position:absolute;
+  right: 3%;
 }
 
 .item-txt{
@@ -100,12 +108,16 @@ page{
 }
 
 .end-activity{
-  justify-content: space-between;
+  justify-content: flex-start;
+}
+
+.end-activity-txt{
+  margin-left: 30rpx;
 }
 
 .txt-title-color{
   color: #FF4400;
-  padding: 25rpx 0rpx;
+  padding: 15rpx 0rpx;
 }
 
 .txt-title-join{
