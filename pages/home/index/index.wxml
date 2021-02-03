@@ -34,6 +34,7 @@
             <view class="item-image">
               <image mode="aspectFit" src="{{item.AttachmentsSli[0]}}"></image>
             </view>
+            <image class="new-tag top-image" src="/image/top.png" wx:if="{{item.New == 1}}"></image>
             <image class="new-tag" src="/image/new.png" wx:if="{{item.New == 1}}"></image>
             <view class="item-txt">
               <view class="txt-title">{{item.Name}}</view>
@@ -42,8 +43,11 @@
                 <view class="txt-title-join">已组团{{item.JoinNum}}人</view>
               </view>
               <view class="txt-title-rule end-activity">
-                <view>逆鳞科技赞助</view>
+                <view>{{item.Number}}期</view>
                 <view class="end-activity-txt">{{item.Status == 4 ? "活动已结束":""}}</view>
+              </view>
+              <view class="txt-title-rule end-activity">
+                <view>逆鳞科技赞助</view>
               </view>
             </view>
           </view>

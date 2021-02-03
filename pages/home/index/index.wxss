@@ -44,7 +44,7 @@ page{
 
 .b-item{
   width: 95%;
-  height: 220rpx;
+  height: 250rpx;
   display: flex;
   flex-direction: row;
   background: white;
@@ -74,6 +74,12 @@ page{
   z-index: 100;
   position:absolute;
   right: 3%;
+}
+
+.top-image{
+  width: 50rpx;
+  height: 50rpx;
+  right: 8%;
 }
 
 .item-txt{
@@ -108,11 +114,11 @@ page{
 }
 
 .end-activity{
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 .end-activity-txt{
-  margin-left: 30rpx;
+  margin-left: 20rpx;
 }
 
 .txt-title-color{

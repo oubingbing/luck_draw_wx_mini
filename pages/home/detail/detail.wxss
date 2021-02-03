@@ -1,5 +1,5 @@
 page{
-  background-color: #FF4400;
+  background-color: #F5F5F5;
   display: flex;
   flex-direction: column;
 }
@@ -23,7 +23,7 @@ page{
   flex-direction: column;
   padding-bottom: 20rpx 0rpx;
   align-items: center;
-  box-shadow: 0rpx 0rpx 10rpx 5rpx #FF4400;
+  background: white;
 }
 
 .h-image{
@@ -47,7 +47,7 @@ page{
   display: flex;
   flex-direction: column;
   padding-top: 20rpx;
-  background: whitesmoke;
+  background: white;
   align-items: center;
   border-bottom-right-radius: 10rpx;
   border-bottom-left-radius: 10rpx;
@@ -86,7 +86,7 @@ page{
   display: flex;
   flex-direction: column;
   margin-top: 20rpx;
-  background: whitesmoke;
+  background: white;
   align-items: center;
   justify-content: center;
   height: 130rpx;
@@ -102,7 +102,7 @@ page{
 }
 
 .activity-end{
-  background: gray;
+  background: #DCDCDC;
 }
 
 .queue-btn{
@@ -122,7 +122,7 @@ page{
 }
 
 .lose-btn{
-  background: grey;
+  background: #DCDCDC;
   font-size: 30rpx;
   padding: 20rpx 50rpx;
   color: white;
@@ -133,7 +133,7 @@ page{
   width: 100%;
   display: flex;
   flex-direction: column;
-  background: whitesmoke;
+  background: white;
   margin-top: 20rpx;
   align-items: center;
   padding-bottom: 50rpx;
@@ -369,7 +369,7 @@ page{
 .success-member{
   width: 100%;
   display: flex;
-  background: whitesmoke;
+  background: white;
   margin-top: 20rpx;
   border-radius: 10rpx;
   display: flex;
