@@ -110,7 +110,7 @@ page{
 }
 
 .queue-btn{
-  background: #0b988f;
+  background: #FF8C00;
   font-size: 30rpx;
   padding: 20rpx 50rpx;
   color: white;
@@ -208,8 +208,8 @@ page{
 }
 
 .share-btn{
-  width: 100rpx;
-  height: 100rpx;
+  width: 90rpx;
+  height: 90rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -217,7 +217,7 @@ page{
   background: white;
   margin: 0rpx;
   padding: 0rpx;
-  border-radius: 60rpx;
+  border-radius: 50rpx;
 }
 
 .fixd-right-img{
