@@ -114,7 +114,6 @@ page{
 }
 
 .end-activity{
-  justify-content: space-between;
 }
 
 .end-activity-txt{
@@ -123,7 +122,6 @@ page{
 
 .txt-title-color{
   color: #FF4400;
-  padding: 15rpx 0rpx;
 }
 
 .txt-title-join{
