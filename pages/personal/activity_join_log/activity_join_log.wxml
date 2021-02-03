@@ -48,7 +48,7 @@
               <view class="icon-content">
                 <image wx:if="{{item.Status==2}}" mode="aspectFit" src="/image/running.png"></image>
                 <image wx:if="{{item.Status==5}}" mode="aspectFit" src="/image/lose.png"></image>
-                <image wx:if="{{item.Status==4}}" mode="aspectFit" src="/image/win.png"></image>
+                <image wx:if="{{item.Status==4 || item.Status==6 || item.Status==7}}" mode="aspectFit" src="/image/win.png"></image>
               </view>
             </view>
           </view>

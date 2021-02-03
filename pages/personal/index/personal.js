@@ -20,7 +20,7 @@ Page({
   },
 
   onShow: function () {
-    //this.checkLogin();
+    this.checkLogin();
   },
 
   openMessage:function(){
@@ -32,6 +32,7 @@ Page({
   checkLogin:function(){
     http.get(`/user/check_login`, {}, res => {
       if (res.data.code == '1010' || res.data.code == '1011' || res.data.code == '1008') {
+        console.log('重新授权')
         app.globalData.authStatus = true;
         this.setData({
           showLoginButton : true

@@ -70,6 +70,10 @@ page{
   width: 90%;
 }
 
+.activity-num{
+  margin-bottom: 10rpx;
+}
+
 .h-desc-item{
   margin-left: 20rpx;
 }

@@ -2,6 +2,7 @@
   "pages": [
     "pages/home/index/index",
     "pages/home/detail/detail",
+    "pages/home/history/history",
     "pages/personal/index/personal",
     "pages/personal/activity_join_log/activity_join_log",
     "pages/personal/address/address",
@@ -30,6 +31,12 @@
         "iconPath": "image/draw.png",
         "selectedIconPath": "image/select-draw.png",
         "text": "首页"
+      },
+      {
+        "pagePath": "pages/home/history/history",
+        "iconPath": "image/history.png",
+        "selectedIconPath": "image/select-history.png",
+        "text": "已开奖活动"
       },
       {
         "pagePath": "pages/personal/index/personal",

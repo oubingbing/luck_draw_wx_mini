@@ -1,0 +1,61 @@
+<!--index.wxml-->
+
+<view class='all-container'>
+  <view class="container">
+
+    <view class='nav-bar-container' wx:if="{{tabList.length > 0}}">
+    <view class='nav-bar'>
+      <view class='all {{select==item.type?"selected":""}}' 
+            wx:for="{{tabList}}"
+            wx:key="{{item.type}}"
+            bindtap="selected" 
+            data-type="{{item.type}}">{{item.txt}}</view>
+    </view>
+  </view>
+
+    <!-- 内容主体 -->
+    <view class="body">
+      <view class="body-content">
+        <view class='message-tip' 
+        wx:if="{{newMessageNumber != 0}}" 
+        bindtap='openMessage'>
+          <view class='tip-content'>
+            <view>您有{{newMessageNumber}}条未读消息</view>
+            <view><image src='/image/qiqiu.png'></image></view>
+          </view>
+        </view>
+        <!-- 内容item -->
+        <view class="body-item">
+          <view class="b-item" 
+                bindtap="detail"
+                data-id="{{item.ID}}"
+                wx:for="{{activities}}" 
+                wx:key="{{item.ID}}">
+            <view class="item-image">
+              <image mode="aspectFit" src="{{item.AttachmentsSli[0]}}"></image>
+            </view>
+            <image class="new-tag top-image" src="/image/top.png" wx:if="{{item.New == 1}}"></image>
+            <image class="new-tag" src="/image/new.png" wx:if="{{item.New == 1}}"></image>
+            <view class="item-txt">
+              <view class="txt-title">{{item.Name}}</view>
+              <view class="txt-title-rule txt-title-color">
+                <view>满{{item.JoinLimitNum}}人自动开奖</view>
+                <view class="txt-title-join">已组团{{item.JoinNum}}人</view>
+              </view>
+              <view class="txt-title-rule end-activity">
+                <view>{{item.Number}}期</view>
+                <view class="end-activity-txt">{{item.Status == 4 ? "活动已结束":""}}</view>
+              </view>
+              <view class="txt-title-rule end-activity">
+                <view>逆鳞科技赞助</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+

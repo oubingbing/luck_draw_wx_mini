@@ -24,15 +24,6 @@ Page({
       title: '加载中...',
       icon:"none"
     })
-    let path = e.path
-    let id = e.id
-    if(path != "" && path != undefined){
-      setTimeout(res=>{
-        wx.navigateTo({
-          url: '/'+path+"?id="+id
-        })
-      },1000)
-    }
 
     this.getActivities()
   },
@@ -60,7 +51,6 @@ Page({
 
   onShow:function(){
     this.getCatogry()
-    this.getMessage()
 
     if(app.globalData.activityId != 0){
       this.getDetail()
@@ -68,7 +58,7 @@ Page({
   },
 
   onReady: function (option) {
-    this.getAd()
+ 
   },
 
   getDetail:function(){
@@ -142,7 +132,7 @@ Page({
     let order = this.data.orderBy
     let sort = this.data.sort
     let select = this.data.select
-    http.get(`/activity/page?page_size=${pageSize}&page_num=${pageNum}&order_by=${order}&sort=${sort}&type=${select}&&history=0`, {}, res => {
+    http.get(`/activity/page?page_size=${pageSize}&page_num=${pageNum}&order_by=${order}&sort=${sort}&type=${select}&history=1`, {}, res => {
       wx.hideLoading()
       setTimeout(res=>{
         wx.stopPullDownRefresh();
