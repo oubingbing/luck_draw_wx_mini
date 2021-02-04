@@ -382,7 +382,8 @@ Page({
   onShareAppMessage: function () {
     let title = "一起来抽大奖啦"
     let image = "/image/personal-bg.jpg"
-    if(this.data.activity.ShareTitle != ""){
+    console.log(this.data.activity.ShareTitle.length)
+    if(this.data.activity.ShareTitle.length > 0){
       title = this.data.activity.ShareTitle
     }else{
       title = this.data.activity.Name

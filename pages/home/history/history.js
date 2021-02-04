@@ -26,6 +26,7 @@ Page({
     })
 
     this.getActivities()
+    this.getAd()
   },
 
     /**
@@ -51,7 +52,6 @@ Page({
 
   onShow:function(){
     this.getCatogry()
-
     if(app.globalData.activityId != 0){
       this.getDetail()
     }
@@ -98,7 +98,7 @@ Page({
   },
 
   getAd:function(){
-    http.get(`/ad/home`, {}, res => {
+    http.get(`/ad/history`, {}, res => {
       let resDate = res.data
       if(resDate.code == 0){
         if(resDate.data != ""){

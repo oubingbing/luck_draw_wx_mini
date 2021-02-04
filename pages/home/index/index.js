@@ -65,10 +65,12 @@ Page({
     if(app.globalData.activityId != 0){
       this.getDetail()
     }
+
+    this.getAd()
   },
 
   onReady: function (option) {
-    this.getAd()
+
   },
 
   getDetail:function(){

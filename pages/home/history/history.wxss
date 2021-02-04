@@ -44,7 +44,7 @@ page{
 
 .b-item{
   width: 95%;
-  height: 250rpx;
+  height: 270rpx;
   display: flex;
   flex-direction: row;
   background: white;
@@ -105,12 +105,25 @@ page{
   font-size: 30rpx;
 }
 
+.txt-p{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.hiegh-color{
+  font-size: 35rpx;
+  padding: 0rpx 5rpx;
+  text-align: center;
+}
+
 .txt-title-rule{
   width: 90%;
   font-size: 25rpx;
   color: gray;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .end-activity{
@@ -122,10 +135,14 @@ page{
 
 .txt-title-color{
   color: #FF4400;
+  align-items: center;
 }
 
 .txt-title-join{
   margin-left: 20rpx;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
 }
 
 /** 消息盒子样式 **/

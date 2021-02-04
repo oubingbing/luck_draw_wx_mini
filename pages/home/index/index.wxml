@@ -39,8 +39,8 @@
             <view class="item-txt">
               <view class="txt-title">{{item.Name}}</view>
               <view class="txt-title-rule txt-title-color">
-                <view>满{{item.JoinLimitNum}}人自动开奖</view>
-                <view class="txt-title-join">已组团{{item.JoinNum}}人</view>
+                <view class="txt-p"><view>满</view><view class="hiegh-color">{{item.JoinLimitNum}}</view><view>人自动开奖</view></view>
+                <view class="txt-title-join"><view>已组团</view><view class="hiegh-color">{{item.JoinNum}}</view><view>人</view></view>
               </view>
               <view class="txt-title-rule end-activity">
                 <view>{{item.Number}}期</view>
