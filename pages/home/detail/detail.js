@@ -38,6 +38,22 @@ Page({
 
   },
 
+  addShare:function(){
+    http.post(`/activity/share_join`, {id:this.data.id}, res => {
+      wx.hideLoading()
+      let resDate = res.data
+      if(resDate.code == 0){
+
+      }else{
+        wx.showToast({
+          title: resDate.msg,
+          icon:"none",
+          duration:3000
+        })
+      }
+    });
+  },
+
   getUserPhone:function(e){
     var iv = e.detail.iv
     var encryptedData = e.detail.encryptedData
@@ -395,15 +411,26 @@ Page({
       image = this.data.activity.AttachmentsSli[0]
     }
 
+    this.addShare()
+
     return {
       title: title,
       path: '/pages/home/index/index?path=pages/home/detail/detail&id='+this.data.id,
       imageUrl:image,
-      success: function (res) {
+      success: res=> {
         // 转发成功
+        wx.showToast({
+          title: "分享成功",
+          icon:"none",
+          duration:3000
+        })
       },
       fail: function (res) {
-        // 转发失败
+        wx.showToast({
+          title: "转发失败，重试",
+          icon:"none",
+          duration:3000
+        })
       }
     }
   }
