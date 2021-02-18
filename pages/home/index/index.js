@@ -16,7 +16,8 @@ Page({
     sort:"desc",
     activities:[],
     newMessageNumber:0,
-    activityId:app.globalData.activityId
+    activityId:app.globalData.activityId,
+    banner:""
   },
 
   onLoad: function (e) {
@@ -26,15 +27,21 @@ Page({
     })
     let path = e.path
     let id = e.id
-    if(path != "" && path != undefined){
-      setTimeout(res=>{
-        wx.navigateTo({
-          url: '/'+path+"?id="+id
-        })
-      },1000)
-    }
+    //if(path != "" && path != undefined){
+    //  setTimeout(res=>{
+    //    wx.navigateTo({
+    //      url: '/'+path+"?id="+id
+    //    })
+    //  },1000)
+    //}else{
+    //  console.log("加载广告")
+    //  this.getAd()
+    //}
 
+    this.getCatogry()
     this.getActivities()
+    this.getBannerAd()
+    this.getAd()
   },
 
     /**
@@ -66,11 +73,28 @@ Page({
       this.getDetail()
     }
 
+    let userStorage = wx.getStorageSync('user');
+    if (userStorage){
+      this.setData({
+        user: userStorage
+      })
+    }
     this.getAd()
   },
 
   onReady: function (option) {
 
+  },
+
+  getBannerAd:function(){
+    http.get(`/ad/banner`, {}, res => {
+      let resDate = res.data
+      if(resDate.code == 0){
+        if(resDate.data != ""){
+          this.setData({banner:resDate.data})
+        }
+      }
+    });
   },
 
   getDetail:function(){

@@ -2,6 +2,8 @@ const util = require("./../../../utils/util.js");
 const http = require("./../../../utils/http.js");
 const app = getApp()
 
+let interstitialAd = null
+
 Page({
 
   data: {
@@ -11,11 +13,32 @@ Page({
     orderBy:"id",
     sort:"desc",
     inboxList:[],
-    showGeMoreLoadin:false
+    showGeMoreLoadin:false,
+    banner:''
   },
 
   onLoad: function (options) {
     this.getInbox()
+    this.getAd()
+    this.getBannerAd()
+  },
+
+  onReady:function(){
+  },
+
+  onShow:function(){
+    this.getAd()
+  },
+
+  getBannerAd:function(){
+    http.get(`/ad/banner`, {}, res => {
+      let resDate = res.data
+      if(resDate.code == 0){
+        if(resDate.data != ""){
+          this.setData({banner:resDate.data})
+        }
+      }
+    });
   },
 
   detail:function(e){
@@ -25,6 +48,37 @@ Page({
     wx.navigateTo({
       url: '/pages/home/detail/detail?id='+obj
     })
+  },
+
+  getAd:function(){
+    http.get(`/ad/inbox`, {}, res => {
+      let resDate = res.data
+      if(resDate.code == 0){
+        if(resDate.data != ""){
+          this.showAd(resDate.data)
+        }
+      }
+    });
+  },
+
+  showAd:function(ad){
+    // 显示首页广告
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({
+        adUnitId: ad
+      })
+      interstitialAd.onLoad(() => {})
+      interstitialAd.onError((err) => {})
+      interstitialAd.onClose(() => {})
+    }
+
+    if (interstitialAd) {
+      setTimeout(res=>{
+        interstitialAd.show().catch((err) => {
+          console.error(err)
+        })
+      },1000)
+    }
   },
 
   readMessage:function(id){

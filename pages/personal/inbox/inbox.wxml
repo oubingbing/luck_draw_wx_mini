@@ -1,6 +1,7 @@
 <view class="container">
   <view class="container-content">
-
+    <!-- 删除红包 -->
+    <ad unit-id="{{banner}}" wx:if="{{banner != ''}}"></ad>
     <view class="content-item" 
           wx:for="{{inboxList}}" 
           wx:key="{{item.Id}}" 

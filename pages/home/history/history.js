@@ -16,7 +16,8 @@ Page({
     sort:"desc",
     activities:[],
     newMessageNumber:0,
-    activityId:app.globalData.activityId
+    activityId:app.globalData.activityId,
+    banner:''
   },
 
   onLoad: function (e) {
@@ -25,8 +26,21 @@ Page({
       icon:"none"
     })
 
+    this.getCatogry()
     this.getActivities()
     this.getAd()
+    this.getBannerAd()
+  },
+
+  getBannerAd:function(){
+    http.get(`/ad/banner`, {}, res => {
+      let resDate = res.data
+      if(resDate.code == 0){
+        if(resDate.data != ""){
+          this.setData({banner:resDate.data})
+        }
+      }
+    });
   },
 
     /**
@@ -55,10 +69,15 @@ Page({
     if(app.globalData.activityId != 0){
       this.getDetail()
     }
+    this.getAd()
   },
 
   onReady: function (option) {
  
+  },
+
+  onShow:function(){
+    this.getAd()
   },
 
   getDetail:function(){

@@ -15,6 +15,7 @@
         <view class="h-spor">逆鳞科技赞助</view>
       </view>
     </view>
+    
 
     <view class="join-content">
       <view wx:if="{{showJoinButton}}">
@@ -28,6 +29,8 @@
         <view class="lose-btn" wx:if="{{activity.ActivityLog.status==5}}">很遗憾未中奖</view>
       </view>
     </view>
+
+    <ad unit-id="{{videos}}" wx:if="{{videos!=''}}" ad-type="video" ad-theme="white"></ad>
 
     <!-- 中奖人 -->
     <view class="success-member" wx:if="{{activity.Status == 4}}">

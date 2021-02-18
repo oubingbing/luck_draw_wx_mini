@@ -6,7 +6,8 @@ Page({
   data: {
     user: '',
     param: app.globalData.param,
-    showLoginButton: app.globalData.authStatus
+    showLoginButton: app.globalData.authStatus,
+    banner:""
   },
   onLoad: function () {
     this.checkAuth();
@@ -21,6 +22,17 @@ Page({
 
   onShow: function () {
     this.checkLogin();
+  },
+
+  getBannerAd:function(){
+    http.get(`/ad/banner`, {}, res => {
+      let resDate = res.data
+      if(resDate.code == 0){
+        if(resDate.data != ""){
+          this.setData({banner:resDate.data})
+        }
+      }
+    });
   },
 
   openMessage:function(){

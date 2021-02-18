@@ -3,6 +3,8 @@ const app = getApp()
 let conn
 let videoAd = null
 
+let interstitialAd = null
+
 let that = ""
 Page({
   data: {
@@ -22,7 +24,8 @@ Page({
     finishAd:false,
     getPhone:false,
     wins:[],
-    showWin:false
+    showWin:false,
+    videos:""
   },
 
   onLoad: function (options) {
@@ -30,12 +33,74 @@ Page({
     this.setData({id:id})
     this.getWins()
     this.getDetail(true)
-
+    this.getAd()
+    this.getvideosAd()
     that = this
   },
 
   onReady: function () {
 
+  },
+
+  getvideosAd:function(){
+    http.get(`/ad/videos`, {}, res => {
+      let resDate = res.data
+      if(resDate.code == 0){
+        if(resDate.data != ""){
+          this.setData({videos:resDate.data})
+        }
+      }
+    });
+  },
+
+  getAd:function(){
+    http.get(`/ad/detail`, {}, res => {
+      let resDate = res.data
+      if(resDate.code == 0){
+        if(resDate.data != ""){
+          console.log(resDate.data)
+          this.showCpAd(resDate.data)
+        }
+      }
+    });
+  },
+
+  showCpAd:function(ad){
+    // 显示首页广告
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({
+        adUnitId: ad
+      })
+      interstitialAd.onLoad(() => {})
+      interstitialAd.onError((err) => {})
+      interstitialAd.onClose(() => {})
+    }
+
+    if (interstitialAd) {
+      setTimeout(res=>{
+        interstitialAd.show().catch((err) => {
+          console.error(err)
+        })
+      },1000)
+    }
+  },
+
+  showAd:function(ad){
+    // 显示首页广告
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({
+        adUnitId: ad
+      })
+      interstitialAd.onLoad(() => {})
+      interstitialAd.onError((err) => {})
+      interstitialAd.onClose(() => {})
+    }
+
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
   },
 
   addShare:function(){
@@ -415,7 +480,7 @@ Page({
 
     return {
       title: title,
-      path: '/pages/home/index/index?path=pages/home/detail/detail&id='+this.data.id,
+      path: '/pages/home/index/index',
       imageUrl:image,
       success: res=> {
         // 转发成功

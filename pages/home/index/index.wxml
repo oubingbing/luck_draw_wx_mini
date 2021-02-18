@@ -24,6 +24,7 @@
             <view><image src='/image/qiqiu.png'></image></view>
           </view>
         </view>
+        <ad unit-id="{{banner}}" wx:if="{{banner != ''}}"></ad>
         <!-- 内容item -->
         <view class="body-item">
           <view class="b-item" 

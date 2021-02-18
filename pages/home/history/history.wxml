@@ -12,7 +12,6 @@
             data-type="{{item.type}}">{{item.txt}}</view>
     </view>
   </view>
-
     <!-- 内容主体 -->
     <view class="body">
       <view class="body-content">
@@ -24,6 +23,7 @@
             <view><image src='/image/qiqiu.png'></image></view>
           </view>
         </view>
+        <ad unit-id="{{banner}}" wx:if="{{banner != ''}}"></ad>
         <!-- 内容item -->
         <view class="body-item">
           <view class="b-item" 
