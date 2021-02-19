@@ -23,7 +23,7 @@
             <view><image src='/image/qiqiu.png'></image></view>
           </view>
         </view>
-        <ad unit-id="{{banner}}" wx:if="{{banner != ''}}"></ad>
+        <ad unit-id="adunit-b27555534324ad0f"></ad>
         <!-- 内容item -->
         <view class="body-item">
           <view class="b-item" 
@@ -38,7 +38,7 @@
             <image class="new-tag" src="/image/new.png" wx:if="{{item.New == 1}}"></image>
             <view class="item-txt">
               <view class="txt-title">{{item.Name}}</view>
-              <view class="txt-title-rule txt-title-color">
+              <view class="txt-title-rule txt-title-color" wx:if="{{item.DrawType != 4}}">
                 <view class="txt-p"><view>满</view><view class="hiegh-color">{{item.JoinLimitNum}}</view><view>人自动开奖</view></view>
                 <view class="txt-title-join"><view>已组团</view><view class="hiegh-color">{{item.JoinNum}}</view><view>人</view></view>
               </view>

@@ -19,7 +19,8 @@ Page({
 
   onLoad: function (options) {
     this.getInbox()
-    this.getAd()
+    //this.getAd()
+    this.showAd("adunit-aed442de4ea3f8dc")
     this.getBannerAd()
   },
 
@@ -73,11 +74,9 @@ Page({
     }
 
     if (interstitialAd) {
-      setTimeout(res=>{
-        interstitialAd.show().catch((err) => {
-          console.error(err)
-        })
-      },1000)
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
     }
   },
 

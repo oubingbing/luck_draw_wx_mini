@@ -7,7 +7,7 @@
       </view>
       <view class="h-txt">
         <view class="h-name">{{activity.Name}}</view>
-        <view class="h-desc">
+        <view class="h-desc" wx:if="{{activity.DrawType != 4}}">
           <view>组团满{{activity.JoinLimitNum}}人自动开奖</view>
           <view class="h-desc-item">组团已达{{activity.JoinNum}}人</view>
         </view>

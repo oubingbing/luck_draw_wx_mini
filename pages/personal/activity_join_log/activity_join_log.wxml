@@ -40,7 +40,7 @@
             </view>
             <view class="item-txt">
               <view class="txt-title">{{item.Name}}</view>
-              <view class="txt-title-rule txt-title-color">
+              <view class="txt-title-rule txt-title-color" wx:if="{{item.DrawType != 4}}">
                 <view>组团满{{item.JoinLimitNum}}人自动开奖</view>
                 <view class="txt-title-join">已组团{{item.JoinNum}}人</view>
               </view>

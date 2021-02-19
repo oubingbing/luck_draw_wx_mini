@@ -33,7 +33,10 @@ Page({
     this.setData({id:id})
     this.getWins()
     this.getDetail(true)
-    this.getAd()
+
+    this.showCpAd()
+
+    //this.getAd()
     this.getvideosAd()
     that = this
   },
@@ -59,17 +62,16 @@ Page({
       if(resDate.code == 0){
         if(resDate.data != ""){
           console.log(resDate.data)
-          this.showCpAd(resDate.data)
         }
       }
     });
   },
 
-  showCpAd:function(ad){
+  showCpAd:function(){
     // 显示首页广告
     if (wx.createInterstitialAd) {
       interstitialAd = wx.createInterstitialAd({
-        adUnitId: ad
+        adUnitId: "adunit-0e3cc57bd58dcaef"
       })
       interstitialAd.onLoad(() => {})
       interstitialAd.onError((err) => {})

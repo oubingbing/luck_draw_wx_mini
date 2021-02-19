@@ -26,10 +26,12 @@ Page({
       icon:"none"
     })
 
+    this.showAd()
+
     this.getCatogry()
     this.getActivities()
-    this.getAd()
-    this.getBannerAd()
+    //this.getAd()
+    //this.getBannerAd()
   },
 
   getBannerAd:function(){
@@ -69,15 +71,11 @@ Page({
     if(app.globalData.activityId != 0){
       this.getDetail()
     }
-    this.getAd()
+    this.showAd()
   },
 
   onReady: function (option) {
  
-  },
-
-  onShow:function(){
-    this.getAd()
   },
 
   getDetail:function(){
@@ -121,17 +119,16 @@ Page({
       let resDate = res.data
       if(resDate.code == 0){
         if(resDate.data != ""){
-          this.showAd(resDate.data)
         }
       }
     });
   },
 
-  showAd:function(ad){
+  showAd:function(){
     // 显示首页广告
     if (wx.createInterstitialAd) {
       interstitialAd = wx.createInterstitialAd({
-        adUnitId: ad
+        adUnitId: "adunit-08366384ec43d4c9"
       })
       interstitialAd.onLoad(() => {})
       interstitialAd.onError((err) => {})
