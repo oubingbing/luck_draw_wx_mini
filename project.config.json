@@ -43,47 +43,33 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
-    "plugin": {
-      "list": []
-    },
-    "game": {
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
     "miniprogram": {
       "list": [
         {
-          "id": -1,
           "name": "个人中心",
           "pathName": "pages/personal/index/personal",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "我的抽奖记录",
           "pathName": "pages/personal/activity_join_log/activity_join_log",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "收货地址",
           "pathName": "pages/personal/address/address",
           "query": "",
           "scene": null
         },
         {
-          "id": 4,
           "name": "新建收货地址",
           "pathName": "pages/personal/address_create/address_create",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "我的消息",
           "pathName": "pages/personal/inbox/inbox",
           "query": "",
@@ -97,5 +83,13 @@
         }
       ]
     }
+  },
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
   }
 }
